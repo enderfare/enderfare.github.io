@@ -1,0 +1,200 @@
+/* these are the main colors and header image
+   replace them with anything you want! */
+:root {
+    --site-bg: url('images/bg-image.png');
+    --main-bg: url('images/nothing.png');
+    --gradient-bg: linear-gradient(0deg, #0000 0%, #1c246288 33%, #18084388 90%);
+    --accent-color: violet;
+    --link-color: mediumpurple;
+    --bg-color: black;
+    --text-color: violet;
+    --text-color2: white;
+    --favorite-color: darkslateblue;
+}
+/* this theme mostly uses default css colors, but you can get hex codes from sites like this:
+   https://palettes.shecodes.io/
+   i just looked up "css color templates" to find that link! */
+
+/* this applies to all the content */
+* {
+    color: var(--text-color);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 2px 2px 5px var(--bg-color);
+/* custom scrollbars don't appear for all browsers, but i like setting them anyway */
+    scrollbar-color: var(--favorite-color) var(--bg-color);
+    scrollbar-width: thin;
+}
+/* this is for when you select text on the page */
+::selection {
+    background: var(--favorite-color);
+    color: var(--bg-color);
+}
+
+html {scroll-behavior: smooth;}
+
+body {
+    margin: 0;
+    background-color: var(--bg-color);
+    background-image: var(--site-bg);
+/* you can add a background-position if you don't want it to be top left! this one is set to not tile */
+    background-repeat: no-repeat;
+}
+/* i think having better line spacing helps text to be more readable, but you can remove it if you want */
+p {line-height: 1.5em;}
+
+/* this is your site title displayed at the top of the page */
+header > h1 {
+    margin: 1em auto;
+    max-width: 960px;
+    padding-left: 1em;
+/* you can change the text-align to center or right if you want it placed differently */
+    text-align: left;
+    color: var(--text-color2);
+}
+
+nav {
+    padding: 0 1em 1em 1em;
+    font-weight: bold;
+}
+
+nav ul {
+    max-width: 960px;
+    margin: auto;
+    line-height: 3rem;
+/* this stuff makes it wrap around on mobile */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+/* this line takes away the dot in front of the list items */
+    list-style-type: none;
+/* list items have default padding but we don't need it for these */
+    padding-left: 0;
+/* and this spaces out the buttons so they're not touching */
+    justify-content: space-evenly;
+}
+nav li a {
+    background-color: var(--bg-color);
+    border: 1px solid var(--favorite-color);
+    padding: .5em 3em;
+/* this takes away the link underline */
+    text-decoration: none;
+/* and this part is animation! */
+    transition: color 400ms ease-out, border-color 400ms ease-out;
+}
+nav li a:hover {
+    border: 1px solid var(--accent-color);
+}
+
+a {
+    color: var(--link-color);
+    transition: color 400ms ease-out;
+}
+a:visited {
+    color: var(--favorite-color);
+}
+a:hover {
+    color: var(--text-color2);
+}
+
+/* you can change this to lots of things. i picked a star! */
+ul { list-style-type: "✦ "; }
+
+#sidebar {
+    background-image: var(--main-bg);
+    border: 1px solid var(--favorite-color);
+    min-width: 220px;
+}
+
+#avatar {
+/* image size is 160px so i made its container a little bigger to fit the borders */
+    margin: 1em auto;
+    max-width: 164px;
+    max-height: 164px;
+}
+#avatar img {
+    background: var(--bg-color);
+    max-width: 160px;
+    border: 1px solid var(--favorite-color);
+    box-shadow: var(--accent-color) 0 0 4px;
+}
+
+#bio {
+    font-size: smaller;
+    margin: 1em;
+    background: var(--bg-color);
+    border: 1px solid var(--favorite-color);
+    box-shadow: var(--accent-color) 0 0 4px;
+}
+#bio p {
+    margin: 1em;
+    color: var(--text-color2);
+}
+
+#content {
+    display: flex;
+    max-width: 960px;
+    margin: auto;
+}
+
+main {
+    background-image: var(--main-bg);
+    background-repeat: repeat;
+    image-rendering: pixelated;
+    max-width: 800px;
+    margin: auto;
+    border: 1px solid darkslateblue;
+    color: var(--accent-color);
+    max-height: 600px;
+    overflow:auto;
+}
+
+.prose {
+/* i couldn't put padding on main without it cutting off the background, so the padding is here... sorry if this extra class is a little inconvenient */
+    background: var(--gradient-bg);
+    margin: 0;
+    padding: 1em;
+}
+
+/* made this a class so i can change it to be centered on mobile */
+.img-right { float: right; }
+
+footer {
+    text-align: center;
+    font-size: small;
+    padding: 1em;
+}
+
+/* these are the mobile styles! */
+@media only screen and (max-width: 800px) {
+    #content {
+        flex-wrap: wrap;
+    }
+    #sidebar {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding-top: 2em;
+    }
+    #avatar {margin: 0 1em;}
+    #bio {width: 50%;}
+    #sidebar ul {   
+        margin: 0 1em;
+        display: flex;
+        flex-wrap: wrap;
+        line-height: 2em;
+        padding-left: 0;
+    }
+    #sidebar li {
+        margin: .3em 1em;
+    }
+    main {
+/* remove scrollbar for mobile */
+        max-height: fit-content;
+    }
+    .img-right {
+        float: none;
+        text-align: center;
+    }
+}

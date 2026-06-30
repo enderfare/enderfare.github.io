@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nougat CSS template for Neocities</title>
+    <meta name="author" content="[your name here!]">
+    <meta name="description" content="[write about your site here!]">
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+      
+<!--this container makes the columns display correctly on mobile vs desktop-->
+<div class="container">
+    
+    <header id="top">
+        
+        <a href="/index.html"><img src="images/your-icon.png" alt="my icon"></a>
+        <h1>THE NEWS WITH NOUGAT</h1>
+
+        <p>extra, extra, read all about it! mailmouse nougat is here to bring you the news! | this page was last printed <time>6/9/2025</time></p>
+        <!--i like to include a last-updated date on my pages, but you don't have to...-->
+
+        <!--this bit is the white-on-black section-->
+        <p class="inverted">
+            nougat is a mouse boy from the Lonely Wolf Treat series. visit the homepage for all the latest updates - 
+            <a href="/index.html">[your homepage link here]</a>
+        </p>
+        <!--link optional... well everything is optional, it's your website-->
+        
+    </header>
+        
+    <nav id="navigation">
+        <span>jump to various sections:</span>
+        <ul>
+            <li><a href="#issue3">Latest News</a></li>
+            <li><a href="#issue2">template layouts</a></li>
+            <li><a href="#issue1">and another thing</a></li>
+            <li>etc...</li>
+            <li>add as many as you want, and name them whatever you want!</li>
+        </ul>
+    </nav>
+      
+    <main>
+        
+        <!--each "issue" is made as its own article... you can link to them from the navigation above, then people can click to scroll down to earlier sections (i ordered this reverse-chronologically since it's for the web haha)-->
+        <article id="issue3">
+        <!--make sure to write the id without the #, you only need the # in the href part of the navigation cuz it's a link.. this tripped me up when i first started so i wanted to explain it here.-->
+        <h2>Latest News (not real, probably clickbait)</h2>
+            
+        <div class="columns bordered">
+        <!--the "columns" class splits it into a grid with four columns. you can have sections span different columns by using these classes:
+
+        "col" - ■□□□ (can go anywhere)
+        "left-2col" - ■■□□
+        "middle-2col" - □■■□
+        "right-2col" - □□■■
+        "left-3col" - ■■■□
+        "right-3col" - □■■■
+        "fullwidth" - ■■■■
+
+        i hope this doesn't give people too much trouble, i'm sure there's a way to make it figure out the placement automatically (like flexbox instead of grid) but this is how i made it on my page and i'm too lazy to try to streamline it more than this haha-->
+            
+            <section class="col">
+                <h3>Welcome!</h3>
+                
+                <p>this template is for cute newspaper style pages... i use it as a site update archive, but you can write fake newspapers for whatever you want!</p>
+                <p>to your right (or below, if you're on mobile), is a sample version of the kind of stuff you can write on a page like this!</p>
+                
+                <h4>how to use</h4>
+                <p>i wrote comments all over the html and css so hopefully you can figure it out from there! it's a bit more complicated than my past templates, but i believe in you.</p>
+                <p>i included a link back to my site in the footer, but crediting me is not necessary. i just made this for fun anyway!</p>
+                
+                <h4>sample column</h4>
+                <!--tip: put your "small-photo" class images inside a clearfix div, it keeps the float to just that block... basically it just prevents weird page layout problems-->
+                <div class="clearfix">
+                    <img src="images/your-icon.png" class="small-photo" alt="">
+                    <p>you can have an image float to the left of your text...</p>
+                </div>
+                <div class="clearfix">
+                    <img src="images/your-icon.png" class="small-photo-right" alt="">
+                    <p>or on the right! just remember that there will be a lot more empty space on mobile since it takes up the full width of the screen...</p>
+                </div>
+                
+            </section>
+            
+            <section class="middle-2col">
+                <h3>Fake article time</h3>
+
+                <h4 class="feature">Local lesbians bake bread</h4>
+                <img src="images/photo.png" class="photo" alt="">
+                <p>
+                    <!--i style the time element to look bold with a bullet point, as a preface for the updates i was posting... but you don't need the time element at all, you can change the css to make it a class and put whatever text you want there. maybe i should've done that for you. WELL IT'S TOO LATE NOW i'm sure you can handle it if you really want.-->
+                    <time>6/9/2025</time> Today's story comes to you from the town of Frosting, here on Mount Sorbet! Mochi the rabbit has baked some delicious melonpan for her two girlfriends, Treat and Moxie.
+                </p>
+                
+                <!--i had to make a "pic" class for floating images in the wide columns since i wanted the image width to always be a certain size...-->
+                <div class="pic clearfix">
+                    <h4>Mailmouse and part-time food critic weighs in</h4>
+                    <img src="images/your-icon.png" alt="">
+                    <p>Our very own Nougat visited Treat's house this afternoon. He had this to say about the melonpan...</p>
+                    <p><em>"It was scrum-diddly-umptious!"</em></p>
+                    <p>You heard it here first, folks. Mochi's melonpan sure is a treat to remember!</p>
+                </div>
+                
+                <p class="banner">shoot, there's all this empty space here... now i have to fill it up with something! good thing i can just type whatever i--</p>
+                
+                <!--some of these emoji render in black and white in this font, that's kinda lucky... i'm just doing this for the joke tho haha-->
+                <h4>😎 MOXIE'S WEATHER CORNER~! ☀ 🌤 🌦 ⁉</h4>
+                <p>moxie says it's gonna be SUNNY TODAY! ...what?! it's raining out...?!?! j-just give it a bit okay! it'll be sunshine again, i swear!!!</p>
+                
+            </section> 
+            
+            <!--i put instructions for the image filter i used here in case other people wanna do the same thing-->
+            <section class="col">
+                <h3>image filtering process</h3>
+                <p>you can use whatever filter you like on your images, but what i used for this page is <a href="https://yrlab.zatunen.com/webgl/gbpic/gbpic.html" target="_blank" rel="nofollow">GB pic</a> by yunta_robo! (credited in the footer as well)</p>
+                <p>the page is in japanese, but it's not hard to figure out.</p>
+                <h4>4 easy steps! wahoo!</h4>
+                <ol>
+                <li>drag and drop an image onto the page. it should be 10:9 ratio, any resolution should work, but it will stretch if it's not 10:9.</li>
+                    <li>the first slider is contrast, the second slider is the grid (go all the way left to turn it off). the checkbox between these is dithering (checker pattern)</li>
+                    <li>the third set of 3 sliders is the color filter. i moved them all the way to the right to make a grayscale image.</li>
+                    <li>take a screenshot when you're happy with it, cuz there's currently no way to save the image in-browser.</li>
+                </ol>
+                <p>and that's it! put em on your site from there! simple!!!</p>
+            </section>
+        </div>
+        </article>
+    
+        <!--this marks a divider between the sections-->
+        <hr>
+            
+        <!--now here's the juicy part! you can copypaste from any of these that you want to use and it'll all be set up for you... i didn't do every possible combination but you get the idea.-->
+        <article id="issue2">
+        <h2>template layouts</h2>
+            
+        <!--btw the "bordered" class puts the grey lines between columns. you can take it out if you don't like the look of it.-->
+        <div class="columns bordered">
+            <section class="col">
+            <h3>column 1</h3>
+                <p>content</p>
+            </section>
+            <section class="col">
+                <h3>column 2</h3>
+                <p>more content</p>
+            </section>
+                <section class="col">
+                <h3>column 3</h3>
+                <p>even more content</p>
+            </section>
+            <section class="col">
+                <h3>column 4</h3>
+                <p>a 4th column of content</p>
+            </section>
+        </div>
+            
+        <p class="banner">you can make a banner that spans the full width of whatever div it's inside, so it can go across the page like this or inside of a column!</p>
+            
+        <div class="columns bordered">
+            <section class="left-2col">
+                <h3>wide column</h3>
+                <p>ooh this is a good place to put a photo</p>
+
+            </section>
+
+            <section class="right-2col">
+                <h3>wide column 2</h3>
+                <p>you could put one over here, too!</p>
+            </section>
+        </div>
+            
+        <hr>
+            
+        <div class="columns bordered">
+        <section class="left-3col">
+            <h3>even wider column</h3>
+            <p>for when it might as well be full width but you want a thing at the side (on desktop anyway)</p>
+    
+        </section>
+            
+        <section class="col">
+            <h3>column 5</h3>
+            <p class="banner">see, this is the banner inside a column like i was telling you about</p>
+        </section>
+        
+        </div>
+        </article>
+        <hr>
+        
+        <article id="issue1" class="fullwidth">
+            <h2>and another thing</h2>
+            <!--hehe, the secret fullwidth class preview...-->
+            <div>
+                <p>just kidding there's nothing else. this page is long enough already... hope you enjoyed my fake article!</p>
+            </div>
+        </article>
+        
+        <!--this link scrolls back up to the top of the page-->
+        <section class="banner end-nav"><a href="#top">return to top</a></section>
+        
+        </main>
+            
+  </div>
+
+    <!--finally we made it to the footer! remove whatever links you don't use, or fill this section with links to other pages on your site-->
+    <footer id="footer" class="inverted">
+        <h4>page credits</h4>
+        <p>image filter: <a href="https://yrlab.zatunen.com/webgl/gbpic/gbpic.html" target="_blank" rel="nofollow">GB pic</a> by yunta_robo</p>
+        <p>site template by <a href="https://nomnomnami.com/" rel="nofollow">NomnomNami</a></p>
+        <h4>site links + info</h4>
+      <a href="/index.html">[your site here]</a> |  hosted on <a target="_blank" href="https://neocities.org/">neocities</a>  | (add whatever other links you want!)
+        <p>© 2025 [your name here!]</p>
+    </footer>    
+    
+  </body>
+  
+</html>

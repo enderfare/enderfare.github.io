@@ -1,0 +1,273 @@
+/* these are the main colors and header image
+   replace them with anything you want! */
+:root {
+    --header-bg: url('images/banner.png');
+    --border-image: url('images/borderimg.png');
+    --header-bg-color: #FFA74C;
+    --accent-color: #f68c19;
+    --link-color: #784D98;
+    --bg-color: #FFEAB6;
+    --bg-color2: #5E5250;
+    --text-color: #2e1d17;
+    /* you can change the stripe colors easily from here */
+    --stripe-color: #FFA74C;
+    --stripe-color2: #FFC25B;
+}
+/* you can get hex codes from sites like this:
+   https://palettes.shecodes.io/
+   i just looked up "css color templates" to find that link! */
+
+/* this applies to all the content */
+* {
+    color: var(--text-color);
+/* change the font here, it's set up to all use the same one */
+    font-family: cursive;
+/* custom scrollbars don't appear for all browsers, but i like setting them anyway */
+    scrollbar-color: var(--text-color) var(--stripe-color2);
+    scrollbar-width: thin;
+}
+/* this is for when you select text on the page */
+::selection {
+    background: var(--accent-color);
+    color: var(--bg-color);
+}
+
+body {
+    /* made the stripe bg with a generator:
+    https://stripesgenerator.com/
+     */
+    background-color: var(--stripe-color);
+    background-image: linear-gradient(45deg, var(--stripe-color) 25%, var(--stripe-color2) 25%, var(--stripe-color2) 50%, var(--stripe-color) 50%, var(--stripe-color) 75%, var(--stripe-color2) 75%, var(--stripe-color2) 100%);
+    background-size: 65.05px 65.05px;
+    margin: 0;
+}
+/* i think having better line spacing helps text to be more readable, but you can remove it if you want */
+p {line-height: 1.5em;}
+
+header {
+    background-color: var(--header-bg-color);
+/* you can add the image url in :root (at the top) if you want */
+    background-image: var(--header-bg);
+    background-position: 75%;
+    background-repeat: no-repeat;
+/* change the minimum height if you want it to take up more/less space */
+    min-height: 200px;
+    margin: 0 auto;
+    padding-top: 10px;
+/* you can change the text-align to center or right if you want it placed differently */
+    text-align: center;
+}
+
+/* this is your site title displayed at the top of the page */
+header > h1 {
+    margin: 20px auto;
+    max-width: 1080px;
+    width: fit-content;
+    padding: 12px;
+}
+
+.white-bg {
+    margin: auto;
+    width: fit-content;
+    background: white;
+    border-radius: 1em;
+    padding: 0 20px;
+}
+
+/*copied this from here: https://unused-css.com/blog/css-rainbow-text/*/
+.rainbow-text {
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+nav {
+    font-weight: bold;
+}
+
+nav > ul {
+    max-width: 1080px;
+    margin: auto;
+    line-height: 3rem;
+/* this stuff makes it wrap around on mobile */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+/* this line takes away the dot in front of the list items */
+    list-style-type: none;
+/* list items have default padding but we don't need it for these */
+    padding-left: 0;
+/* and this spaces out the buttons so they're not touching */
+    justify-content: space-evenly;
+}
+nav li {
+    text-align: center;
+}
+nav li > a {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    padding: .2em 3em;
+/* this takes away the link underline */
+    text-decoration: none;
+}
+nav li > a:hover {
+    background-color: var(--bg-color);
+}
+
+a {
+    color: var(--link-color);
+    font-weight: bold;
+}
+a:visited {
+    color: var(--text-color);
+}
+a:hover {
+    color: var(--accent-color);
+}
+
+/* you can change this to anything you want :) */
+ul { 
+    list-style-type: circle;
+}
+
+marquee {
+    display: block;
+    margin: 0;
+    background-color: var(--stripe-color2);
+}
+
+#sidebar {
+    background-color: var(--bg-color);
+    max-width: 120px;
+    margin: 1em;
+    padding: 1em;
+    border: 2px solid var(--text-color);
+    box-shadow: var(--accent-color) 4px 4px;
+}
+
+#sidebar ul {
+    padding-left: 0;
+    margin: 1em;
+}
+
+#avatar {
+    margin: .5em auto;
+    text-align: center;
+}
+#avatar img {
+    background: var(--stripe-color);
+    width: 100%;
+    border: 2px solid var(--text-color);
+}
+
+#bio {
+    background: var(--stripe-color2);
+    border: 2px solid var(--text-color);
+}
+#bio p { margin: .8em; }
+
+#content {
+    display: flex;
+    max-width: 1080px;
+    margin: auto;
+}
+
+main {
+    background-color: var(--bg-color);
+    box-shadow: var(--accent-color) 4px 4px;
+    margin: 1em;
+    padding-bottom: 1em;
+    border: 32px solid var(--text-color);
+    border-image: var(--border-image) 32 round;
+/*this line makes pixel art look better*/
+    image-rendering: pixelated;
+/*remove these lines if you dont want the scrollbar*/
+    max-height: 420px;
+    overflow: auto;
+}
+
+main h1 {
+    text-align: center;
+}
+
+main > h1,
+main > h2,
+main > h3 {
+    background-color: var(--accent-color);
+    padding: .2em .5em;
+    margin: 0;
+}
+
+.mews {
+    padding: 0 1em;
+}
+
+/* a class for centering text and images */
+.center { text-align: center; }
+
+footer {
+    text-align: center;
+    font-size: small;
+    margin: 1em auto;
+    max-width: 960px;
+}
+
+/* these are the mobile styles! */
+@media only screen and (max-width: 800px) {
+    #content {
+        flex-wrap: wrap;
+    }
+    #sidebar {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        margin: 0;
+    }
+    header {
+        min-height: 300px;
+        background-position: bottom;
+    }
+    header > h1 { 
+        margin: .4em;
+    }
+    .white-bg {
+        margin: 1em;
+    }
+    nav > ul {
+    /* this stuff makes it wrap around on mobile */
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+    #avatar {
+        margin: 0 1em;
+        max-width: 120px;
+    }
+    #bio {width: 50%;}
+    main {
+        margin: 0;
+    /* remove scrollbar for mobile */
+        max-height: fit-content;
+    }
+    #sidebar {
+        max-width: 100%;
+    }
+    #sidebar ul {   
+        margin: 0 1em;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        line-height: 2em;
+    }
+    #sidebar li {
+        padding-left: 0;
+        margin: .3em 1em;
+    }
+    footer {
+        margin: 1em;
+    }
+}

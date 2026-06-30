@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Condition Tracks · Anymalis Core</title>
+		<link href="../style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div class="book">
+			<aside class="book-sidebar">
+				<div class="sidebar-header">
+					<h1>Anymalis</h1>
+					<div class="version">v1.1.1 · Glyphic Resonance</div>
+				</div>
+				<ul class="toc">
+					<li><a href="../index.html">🏠 Home</a></li>
+					<li><a href="attributes.html">📊 Core Rules</a></li>
+					<li class="toc-h2"><a href="attributes.html">Attributes</a></li>
+					<li class="toc-h2"><a href="special-stats.html">Special Stats</a></li>
+					<li class="toc-h2"><a href="biological-stats.html">Biological</a></li>
+					<li class="toc-h2"><a href="derived-stats.html">Derived Stats</a></li>
+					<li class="toc-h2"><a href="advancement.html">Advancement</a></li>
+					<li class="toc-h2">
+						<a
+							href="condition-tracks.html"
+							style="
+								color: var(--accent-color);
+								border-left-color: var(--accent-color);
+							"
+							>Condition Tracks</a
+						>
+					</li>
+
+					<li><a href="../magic/magic.html">✨ Magic System</a></li>
+					<li class="toc-h2">
+						<a href="../magic/elements.html">Elements & Variants</a>
+					</li>
+					<li class="toc-h2">
+						<a href="../magic/outlines.html">Ten Outlines</a>
+					</li>
+					<li class="toc-h2">
+						<a href="../magic/legendary-elements.html">Legendary Elements</a>
+					</li>
+
+					<li><a href="../races/races.html">🧬 Races</a></li>
+					<li class="toc-h2">
+						<a href="../races/felinnari.html">Felinnari</a>
+					</li>
+					<li class="toc-h2"><a href="../races/corveki.html">Corveki</a></li>
+					<li class="toc-h2"><a href="../races/drifters.html">Drifters</a></li>
+
+					<li><a href="../example/elara.html">📖 Example</a></li>
+				</ul>
+				<div class="sidebar-footer">
+					<p>📁 Anymalis · Core Rules</p>
+				</div>
+			</aside>
+
+			<main class="book-main">
+				<div class="content-section">
+					<span class="tag">RESOURCE TRACKS</span>
+					<h1>Condition Tracks</h1>
+
+					<h2>🧠 Sanity Track</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>%</th>
+								<th>Effect</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>90-100%</td>
+								<td>Clear-minded, +2 to Insight checks</td>
+							</tr>
+							<tr>
+								<td>75-89%</td>
+								<td>Normal</td>
+							</tr>
+							<tr>
+								<td>50-74%</td>
+								<td>Distracted, -1 to concentration</td>
+							</tr>
+							<tr>
+								<td>25-49%</td>
+								<td>Haunted, disadvantage on mental saves</td>
+							</tr>
+							<tr>
+								<td>10-24%</td>
+								<td>Unstable, random glyph misfires</td>
+							</tr>
+							<tr>
+								<td>0-9%</td>
+								<td>Broken, loss of magical control</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<h2>⚡ Energy Track</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>%</th>
+								<th>Effect</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>75-100%</td>
+								<td>Normal</td>
+							</tr>
+							<tr>
+								<td>50-74%</td>
+								<td>Fatigued, -1 to physical checks</td>
+							</tr>
+							<tr>
+								<td>25-49%</td>
+								<td>Exhausted, speed halved</td>
+							</tr>
+							<tr>
+								<td>10-24%</td>
+								<td>Incapacitated, cannot take actions</td>
+							</tr>
+							<tr>
+								<td>0-9%</td>
+								<td>Unconscious</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<h2>✨ Animent Track</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>%</th>
+								<th>Effect</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>75-100%</td>
+								<td>Normal casting</td>
+							</tr>
+							<tr>
+								<td>50-74%</td>
+								<td>Glyphs cost +1 ANI</td>
+							</tr>
+							<tr>
+								<td>25-49%</td>
+								<td>Can only cast simple glyphs</td>
+							</tr>
+							<tr>
+								<td>10-24%</td>
+								<td>Glyph failure chance 25%</td>
+							</tr>
+							<tr>
+								<td>0-9%</td>
+								<td>Magically exhausted, cannot cast</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<h2>📜 Special Rules</h2>
+					<h3>Glyph Casting Costs</h3>
+					<ul>
+						<li><strong>Simple Glyph:</strong> 1-3 ANI</li>
+						<li><strong>Complex Glyph:</strong> 4-7 ANI</li>
+						<li><strong>Ritual Glyph:</strong> 8+ ANI</li>
+						<li><strong>Outlines:</strong> Add 1-2 ANI per outline stacked</li>
+					</ul>
+
+					<h3>Trait Interactions</h3>
+					<ul>
+						<li>Animal traits may provide natural weapons (1d4 damage)</li>
+						<li>Hybrid traits may provide darkvision or special senses</li>
+						<li>
+							High Q% causes social stigma (-2 Presence in conservative
+							societies)
+						</li>
+					</ul>
+
+					<h3>Magical Birthmarks</h3>
+					<ul>
+						<li>Provide advantage on glyph saves of matching element</li>
+						<li>Glow when using affinity element (can't be hidden)</li>
+						<li>
+							Can be used as focus for casting (no material components needed)
+						</li>
+					</ul>
+
+					<footer class="footer-note">
+						© 2025 · Anymalis · Condition Tracks
+					</footer>
+				</div>
+			</main>
+		</div>
+	</body>
+</html>
