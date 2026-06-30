@@ -55,3 +55,27 @@ main {
 		order: 1;
 	}
 }
+
+/* Better nested lists on the home page */
+.creations-list {
+	padding-left: 1.2rem;
+	list-style-type: "✦ ";
+}
+
+.creations-list ul {
+	list-style-type: "▸ ";
+	padding-left: 2rem;
+	margin-top: 0.3rem;
+}
+
+.creations-list li {
+	margin-bottom: 0.6rem;
+}
+
+.creations-list ul li {
+	margin-bottom: 0.3rem;
+}
+
+.creations-list strong {
+	color: var(--accent-color);
+}
