@@ -17,8 +17,7 @@ jobs:
       - name: Check links
         uses: lycheeverse/lychee-action@v1
         with:
-          args: --verbose --no-progress './**/*.html' './**/*.md'
-          # Optionally exclude external URLs if you want to avoid rate limiting
-          args: --exclude "https://github.com/*" --verbose --no-progress './**/*.html'
+          args: --verbose --no-progress --exclude "https://github.com/*" --verbose --no-progress './**/*.html' './**/*.md' 
+          
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
