@@ -16,7 +16,7 @@ jobs:
         with:
           base-url-path: https://enderfare.github.io/website   # change to your actual URL
           # Optional: exclude certain paths
-          # exclude-paths: "media/**,projects/**"
+          exclude-paths: "media/**,projects/**"
 
       - name: Commit and push if changed
         run: |
