@@ -1,9 +1,10 @@
 name: Update sitemap
 
 on:
-  schedule:
-    - cron: '0 5 * * *'   # daily at 5am
-  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 permissions:
   contents: write   # <-- required for pushing
