@@ -1,22 +1,24 @@
-name: Generate sitemap
+name: Update sitemap
+
 
 on:
   push:
     branches: [main]
 
+permissions:
+  contents: write   # <-- required for pushing
+
 jobs:
-  sitemap:
+  update:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Generate sitemap
-        uses: cicirello/generate-sitemap@v1
-        with:
-          base-url-path: https://enderfare.github.io/website   # change to your actual URL
-          # Optional: exclude certain paths
-          exclude-paths: "media/**,projects/**"
+      - name: Generate sitemap (your own script)
+        run: |
+          # Replace this with your sitemap generation command
+          echo "Generating sitemap.xml..." > sitemap.xml
 
       - name: Commit and push if changed
         run: |
@@ -25,3 +27,8 @@ jobs:
           git add sitemap.xml
           git diff --staged --quiet || git commit -m "Update sitemap"
           git push
+        env:
+          # The remote URL is set via the checkout action, but we need to re-authenticate
+          # Actually the checkout@v4 already checks out with the token, but the push may still fail.
+          # The safest is to set the remote explicitly.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
