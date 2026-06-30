@@ -1,0 +1,3 @@
+Just some plain text.
+No formatting, no markup.
+Just words.

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <title>Blog · Ender's Domain</title>
+        <meta name="author" content="EnderFare" />
+        <meta name="description" content="My blog – dev, writing, and roleplay." />
+        <!-- shared styles -->
+        <link href="/common.css" rel="stylesheet" type="text/css" media="all" />
+        <!-- blog specific styles -->
+        <link href="style.css" rel="stylesheet" type="text/css" media="all" />
+        <!-- FontAwesome for icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    </head>
+
+    <body>
+        <header>
+            <h1>my blog</h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/projects/index.html">Projects</a></li>
+                <li><a href="/blog/index.html" class="active">Blog</a></li>
+                <!-- you can add category links here -->
+            </ul>
+        </nav>
+
+        <div id="content">
+            <!-- sidebar – identical to your home/projects -->
+            <div id="sidebar">
+                <div id="avatar">
+                    <img src="/media/images/icon.jpg" alt="my icon" />
+                </div>
+                <div id="bio">
+                    <div class="bio-name">Ender</div>
+                    <div class="bio-tagline">writer &amp; dreamer</div>
+                    <div class="bio-details">
+                        <span><span class="bio-label">a:</span> <span class="bio-value">21</span></span>
+                        <span><span class="bio-label">p:</span> <span class="bio-value">he/him</span></span>
+                        <span><span class="bio-label">s:</span> <span class="bio-value">pan/aro/demiboy</span></span>
+                    </div>
+                </div>
+                <ul>
+                    <li><a href="#link4">Github</a></li>
+                    <li><a href="#link5">Youtube</a></li>
+                    <li><a href="#link6">Twitch</a></li>
+                    <li><a href="#link7">Kick</a></li>
+                    <li><a href="#link8">Twitter</a></li>
+                </ul>
+            </div>
+
+            <!-- main content -->
+            <main class="page-main">
+                <div class="prose">
+                    <h1>Blog</h1>
+                    <p>My thoughts, updates, and stories.</p>
+
+                    <!-- tag filter (optional) -->
+                    <div id="tag-filters"></div>
+
+
+                    <!-- posts container -->
+                    <div id="post-grid"></div>
+                </div>
+            </main>
+        </div>
+
+        <footer>
+            © 2026 EnderFare | template by <a href="https://nomnomnami.com/templates/">NomnomNami</a>!
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <script src="blog.js"></script>
+    </body>
+
+</html>

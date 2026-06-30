@@ -1,0 +1,39 @@
+[
+    {
+        "id": 1,
+        "slug": "welcome",
+        "title": "Welcome to my Blog!",
+        "date": "2026-06-30",
+        "tags": [
+            "intro",
+            "dev"
+        ],
+        "format": "markdown",
+        "pinned": true,
+        "excerpt": "My very first post. I'll be sharing dev, writing, and RPG updates."
+    },
+    {
+        "id": 2,
+        "slug": "chapter-3",
+        "title": "Writing Update: Chapter 3",
+        "date": "2026-06-28",
+        "tags": [
+            "writing"
+        ],
+        "format": "html",
+        "pinned": false,
+        "excerpt": "I finished the third chapter of my novel."
+    },
+    {
+        "id": 3,
+        "slug": "old-thoughts",
+        "title": "Old thoughts from May",
+        "date": "2026-05-15",
+        "tags": [
+            "personal"
+        ],
+        "format": "text",
+        "pinned": false,
+        "excerpt": "Just some old ramblings."
+    }
+]
