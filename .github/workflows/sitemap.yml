@@ -1,9 +1,9 @@
 name: Update sitemap
 
-
 on:
-  push:
-    branches: [main]
+  schedule:
+    - cron: '0 5 * * *'   # daily at 5am
+  workflow_dispatch:
 
 permissions:
   contents: write   # <-- required for pushing
@@ -15,10 +15,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Generate sitemap (your own script)
-        run: |
-          # Replace this with your sitemap generation command
-          echo "Generating sitemap.xml..." > sitemap.xml
+      - name: Generate sitemap
+        uses: cicirello/generate-sitemap@v1
+        with:
+          base-url-path: https://enderfare.github.io/website   # change to your actual URL
+          # Optional: exclude certain paths
+          exclude-paths: "media/**,projects/**"
 
       - name: Commit and push if changed
         run: |
