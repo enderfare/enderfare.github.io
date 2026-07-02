@@ -1,27 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const GITHUB_USER = 'EnderFare';
-  let allRepos = [];
+  let allProjects = [];
+  let currentSource = 'all';
   let currentTopic = 'all';
   let showForks = false;
 
-  // ---- Fetch repositories: local JSON first, then API ----
-  async function fetchRepos() {
+  // ---- Fetch projects from data/projects.json ----
+  async function fetchProjects() {
     try {
-      const localRes = await fetch('/data/repos.json');
-      if (localRes.ok) {
-        const data = await localRes.json();
-        if (Array.isArray(data) && data.length > 0) {
-          return data;
-        }
-      }
-    } catch (e) { /* fall through */ }
-
-    const res = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?sort=updated&per_page=100`);
-    if (!res.ok) throw new Error('Failed to load repositories');
-    return res.json();
+      const res = await fetch('/data/projects.json');
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      return data;
+    } catch (err) {
+      console.error('Failed to load projects:', err);
+      return [];
+    }
   }
 
-  // ---- Language color mapping ----
+  // ---- Language colors (coding) ----
   function getLangColor(lang) {
     const colors = {
       'JavaScript': '#f1e05a',
@@ -46,28 +42,53 @@ document.addEventListener('DOMContentLoaded', () => {
     return colors[lang] || '#6e7681';
   }
 
-  // ---- Build topic chips ----
-  function buildTopics(repos) {
-    const container = document.getElementById('topic-scroll');
+  // ---- Build topic filters ----
+  function buildTopicFilters(projects) {
+    const container = document.getElementById('sidebar-topic-filters');
     const topicCount = {};
-    repos.forEach(repo => {
-      if (repo.topics && Array.isArray(repo.topics)) {
-        repo.topics.forEach(t => { topicCount[t] = (topicCount[t] || 0) + 1; });
-      }
+    projects.forEach(p => {
+      (p.topics || []).forEach(t => { topicCount[t] = (topicCount[t] || 0) + 1; });
     });
     const topics = Object.keys(topicCount).sort();
 
-    let html = `<span class="topic-chip all-chip ${currentTopic === 'all' ? 'active' : ''}" data-topic="all">All</span>`;
+    let html = `<label class="filter-option all-option">
+      <input type="radio" name="topic" value="all" checked>
+      <span>All</span>
+      <span class="filter-count">${projects.length}</span>
+    </label>`;
     topics.forEach(t => {
-      const count = topicCount[t];
-      html += `<span class="topic-chip ${currentTopic === t ? 'active' : ''}" data-topic="${t}">#${t} <span class="chip-count">${count}</span></span>`;
+      html += `<label class="filter-option">
+        <input type="radio" name="topic" value="${t}">
+        <span>#${t}</span>
+        <span class="filter-count">${topicCount[t]}</span>
+      </label>`;
     });
     container.innerHTML = html;
 
-    // Click handler for chips
-    container.querySelectorAll('.topic-chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        currentTopic = chip.dataset.topic;
+    container.querySelectorAll('input[name="topic"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        currentTopic = radio.value;
+        renderProjects();
+      });
+    });
+  }
+
+  // ---- Update source counts ----
+  function updateSourceCounts(projects) {
+    const total = projects.length;
+    const github = projects.filter(p => p.source === 'github').length;
+    const other = projects.filter(p => p.source === 'other').length;
+    document.getElementById('source-count-all').textContent = total;
+    document.getElementById('source-count-github').textContent = github;
+    document.getElementById('source-count-other').textContent = other;
+  }
+
+  // ---- Build source filter listeners ----
+  function buildSourceFilters() {
+    const container = document.getElementById('sidebar-source-filters');
+    container.querySelectorAll('input[name="source"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        currentSource = radio.value;
         renderProjects();
       });
     });
@@ -76,16 +97,23 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Render project cards ----
   function renderProjects() {
     const grid = document.getElementById('project-grid');
-    let filtered = [...allRepos];
+    let filtered = [...allProjects];
 
-    // Filter forks
-    if (!showForks) {
-      filtered = filtered.filter(repo => !repo.fork);
+    // Source filter
+    if (currentSource === 'github') {
+      filtered = filtered.filter(p => p.source === 'github');
+    } else if (currentSource === 'other') {
+      filtered = filtered.filter(p => p.source === 'other');
     }
 
-    // Filter by topic
+    // Fork filter (only applies if isFork exists)
+    if (!showForks) {
+      filtered = filtered.filter(p => !p.isFork);
+    }
+
+    // Topic filter
     if (currentTopic !== 'all') {
-      filtered = filtered.filter(repo => repo.topics && repo.topics.includes(currentTopic));
+      filtered = filtered.filter(p => (p.topics || []).includes(currentTopic));
     }
 
     // Sort by updated date (newest first)
@@ -96,54 +124,65 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Update active chip styles
-    document.querySelectorAll('.topic-chip').forEach(chip => {
-      chip.classList.toggle('active', chip.dataset.topic === currentTopic);
-    });
+    // Inside renderProjects, where you build the grid HTML
+    grid.innerHTML = filtered.map(p => {
+      const langColor = getLangColor(p.language);
+      const forkBadge = p.isFork ? `<span class="fork-indicator"><i class="fas fa-code-branch"></i> fork</span>` : '';
+      const sourceBadge = p.source === 'github'
+        ? `<span class="source-badge github"><i class="fab fa-github"></i> GitHub</span>`
+        : `<span class="source-badge other"><i class="fas fa-box"></i> Other</span>`;
+      const spokenBadge = p.spoken_language
+        ? `<span class="spoken-badge"><i class="fas fa-globe"></i> ${p.spoken_language}</span>`
+        : '';
 
-    grid.innerHTML = filtered.map(repo => {
-      const langColor = getLangColor(repo.language);
-      const isLocal = repo.isLocal || false; // you can set this in data/repos.json if you want
+      // --- NEW: Detect internal vs external links ---
+      const isInternal = p.html_url && p.html_url.startsWith('/');
+      const targetAttr = isInternal ? '' : 'target="_blank"';
+      const relAttr = isInternal ? '' : 'rel="noopener noreferrer"';
+
       return `
-                <a href="${repo.html_url}" target="_blank" class="project-card ${isLocal ? 'has-local' : ''}" style="position: relative; padding-right: 2.5rem;">
-                    <div class="card-header">
-                        <span class="repo-name"><i class="fas fa-code"></i> ${repo.name}</span>
-                        <span class="repo-stars"><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
-                    </div>
-                    <p class="repo-desc">${repo.description || 'No description provided.'}</p>
-                    ${repo.topics && repo.topics.length > 0 ? `
-                        <div class="repo-topics">
-                            ${repo.topics.map(t => `<span class="topic-tag">#${t}</span>`).join('')}
-                        </div>
-                    ` : ''}
-                    <div class="repo-meta">
-                        <span class="repo-language">
-                            ${repo.language ? `<span class="lang-dot" style="background: ${langColor};"></span> ${repo.language}` : ''}
-                        </span>
-                        <span class="repo-updated">Updated ${new Date(repo.updated_at).toLocaleDateString()}</span>
-                    </div>
-                    <span class="github-corner"><i class="fab fa-github"></i></span>
-                </a>
-            `;
+    <a href="${p.html_url}" ${targetAttr} ${relAttr} class="project-card" style="position: relative; padding-right: 2.5rem;">
+      <div class="card-header">
+        <span class="repo-name">
+          <i class="fas fa-code"></i> ${p.name}
+          ${sourceBadge}
+          ${spokenBadge}
+          ${forkBadge}
+        </span>
+        <span class="repo-stars"><i class="fas fa-star"></i> ${p.stargazers_count || 0}</span>
+      </div>
+      <p class="repo-desc">${p.description || 'No description provided.'}</p>
+      ${p.topics && p.topics.length > 0 ? `
+        <div class="repo-topics">
+          ${p.topics.map(t => `<span class="topic-tag">#${t}</span>`).join('')}
+        </div>
+      ` : ''}
+      <div class="repo-meta">
+        <span class="repo-language">
+          ${p.language ? `<span class="lang-dot" style="background: ${langColor};"></span> ${p.language}` : ''}
+        </span>
+        <span class="repo-updated">Updated ${new Date(p.updated_at).toLocaleDateString()}</span>
+      </div>
+      <span class="github-corner"><i class="fab fa-github"></i></span>
+    </a>
+  `;
     }).join('');
-
-    // Ensure FontAwesome is loaded
-    if (!document.querySelector('link[href*="font-awesome"]')) {
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css';
-      document.head.appendChild(link);
-    }
   }
 
   // ---- Main init ----
   async function init() {
     try {
-      allRepos = await fetchRepos();
-      buildTopics(allRepos);
+      allProjects = await fetchProjects();
+      if (allProjects.length === 0) {
+        document.getElementById('project-grid').innerHTML = '<p style="color: var(--text-color2);">No projects found.</p>';
+        return;
+      }
+
+      buildTopicFilters(allProjects);
+      updateSourceCounts(allProjects);
+      buildSourceFilters();
       renderProjects();
 
-      // Fork toggle
       const toggle = document.getElementById('showForks');
       toggle.addEventListener('change', () => {
         showForks = toggle.checked;

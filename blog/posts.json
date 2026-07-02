@@ -1,39 +1,94 @@
-[
-    {
-        "id": 1,
-        "slug": "welcome",
-        "title": "Welcome to my Blog!",
-        "date": "2026-06-30",
-        "tags": [
-            "intro",
-            "dev"
-        ],
-        "format": "markdown",
-        "pinned": true,
-        "excerpt": "My very first post. I'll be sharing dev, writing, and RPG updates."
-    },
-    {
-        "id": 2,
-        "slug": "chapter-3",
-        "title": "Writing Update: Chapter 3",
-        "date": "2026-06-28",
-        "tags": [
-            "writing"
-        ],
-        "format": "html",
-        "pinned": false,
-        "excerpt": "I finished the third chapter of my novel."
-    },
-    {
-        "id": 3,
-        "slug": "old-thoughts",
-        "title": "Old thoughts from May",
-        "date": "2026-05-15",
-        "tags": [
-            "personal"
-        ],
-        "format": "text",
-        "pinned": false,
-        "excerpt": "Just some old ramblings."
-    }
-]
+{
+    "lists": [
+        {
+            "slug": "meta",
+            "name": "Meta",
+            "parent": null
+        },
+        {
+            "slug": "dev-logs",
+            "name": "Dev Logs",
+            "parent": null
+        },
+        {
+            "slug": "novel-series",
+            "name": "Novel Series",
+            "parent": null
+        },
+        {
+            "slug": "chapter-3",
+            "name": "Chapter 3",
+            "parent": "novel-series"
+        },
+        {
+            "slug": "personal",
+            "name": "Personal",
+            "parent": null
+        }
+    ],
+    "posts": [
+        {
+            "id": 1,
+            "slug": "welcome",
+            "title": "Welcome to my Blog!",
+            "date": "2026-06-30",
+            "tags": [
+                "intro",
+                "dev"
+            ],
+            "format": "markdown",
+            "pinned": true,
+            "lists": [
+                "meta",
+                "dev-logs"
+            ],
+            "excerpt": "My very first post. I'll be sharing dev, writing, and RPG updates."
+        },
+        {
+            "id": 2,
+            "slug": "chapter-3",
+            "title": "Writing Update: Chapter 3",
+            "date": "2026-06-28",
+            "tags": [
+                "writing"
+            ],
+            "format": "html",
+            "pinned": false,
+            "lists": [
+                "chapter-3"
+            ],
+            "excerpt": "I finished the third chapter of my novel."
+        },
+        {
+            "id": 3,
+            "slug": "old-thoughts",
+            "title": "Old thoughts from May",
+            "date": "2026-05-15",
+            "tags": [
+                "personal"
+            ],
+            "format": "text",
+            "pinned": false,
+            "lists": [
+                "personal"
+            ],
+            "excerpt": "Just some old ramblings."
+        },
+        {
+            "id": 4,
+            "slug": "chapter-3-1",
+            "title": "Chapter 3.1 – The Draft",
+            "date": "2026-07-01",
+            "tags": [
+                "writing"
+            ],
+            "format": "markdown",
+            "pinned": false,
+            "lists": [
+                "chapter-3"
+            ],
+            "parent": "chapter-3",
+            "excerpt": "A deeper look into the draft of chapter 3."
+        }
+    ]
+}

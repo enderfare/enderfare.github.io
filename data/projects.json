@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Anymalis",
+        "description": "A worldbuilding repository for my TTRPG System.",
+        "html_url": "https://github.com/enderfare/Anymalis",
+        "topics": [
+            "worldbuilding",
+            "fantasy",
+            "ttrpg"
+        ],
+        "language": "Markdown",
+        "spoken_language": "English",
+        "updated_at": "2026-06-30T15:03:35Z",
+        "stargazers_count": 0,
+        "source": "github",
+        "isFork": false
+    },
+    {
+        "name": "My Fantasy Novel",
+        "description": "A dark fantasy novel about lost memories.",
+        "html_url": "/blog/index.html?list=novel-series",
+        "topics": [
+            "writing",
+            "fantasy",
+            "novel"
+        ],
+        "language": null,
+        "spoken_language": "English",
+        "updated_at": "2026-07-01T12:00:00Z",
+        "stargazers_count": 0,
+        "source": "other",
+        "isFork": false
+    }
+]

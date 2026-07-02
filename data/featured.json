@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Latest Project: Anymalis",
+        "description": "A worldbuilding repository for Glyphic Resonance â€” a structured magic system.",
+        "link": "/projects/index.html",
+        "icon": "fa-solid fa-book"
+    },
+    {
+        "title": "New Blog Post: Welcome!",
+        "description": "My very first post on this blog.",
+        "link": "/blog/post.html?slug=welcome",
+        "icon": "fa-solid fa-newspaper"
+    },
+    {
+        "title": "Check out my GitHub",
+        "description": "All my open-source work.",
+        "link": "https://github.com/EnderFare",
+        "icon": "fa-brands fa-github"
+    }
+]

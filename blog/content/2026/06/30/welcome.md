@@ -12,4 +12,4 @@ I'll try to post at least once a week.
 
 ![My avatar](/media/images/icon.jpg)
 
-Thanks for stopping by! 😊
+Thanks for stopping by! 

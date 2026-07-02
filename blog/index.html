@@ -7,11 +7,9 @@
         <title>Blog · Ender's Domain</title>
         <meta name="author" content="EnderFare" />
         <meta name="description" content="My blog – dev, writing, and roleplay." />
-        <!-- shared styles -->
+        <link rel="icon" type="image/jpeg" href="/media/images/icon.jpg" />
         <link href="/common.css" rel="stylesheet" type="text/css" media="all" />
-        <!-- blog specific styles -->
         <link href="style.css" rel="stylesheet" type="text/css" media="all" />
-        <!-- FontAwesome for icons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     </head>
 
@@ -21,60 +19,95 @@
         </header>
 
         <nav>
-            <ul>
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/projects/index.html">Projects</a></li>
-                <li><a href="/blog/index.html" class="active">Blog</a></li>
-                <!-- you can add category links here -->
-            </ul>
+            <ul></ul> <!-- Filled by loader -->
         </nav>
 
         <div id="content">
-            <!-- sidebar – identical to your home/projects -->
-            <div id="sidebar">
+            <aside id="sidebar">
                 <div id="avatar">
                     <img src="/media/images/icon.jpg" alt="my icon" />
                 </div>
                 <div id="bio">
-                    <div class="bio-name">Ender</div>
-                    <div class="bio-tagline">writer &amp; dreamer</div>
+                    <div class="bio-name" id="bio-name"></div>
+                    <div class="bio-tagline" id="bio-tagline"></div>
                     <div class="bio-details">
-                        <span><span class="bio-label">a:</span> <span class="bio-value">21</span></span>
-                        <span><span class="bio-label">p:</span> <span class="bio-value">he/him</span></span>
-                        <span><span class="bio-label">s:</span> <span class="bio-value">pan/aro/demiboy</span></span>
+                        <span><span class="bio-label">a:</span> <span class="bio-value" id="bio-age"></span></span>
+                        <span><span class="bio-label">p:</span> <span class="bio-value" id="bio-pronouns"></span></span>
+                        <span><span class="bio-label">s:</span> <span class="bio-value"
+                                id="bio-sexuality"></span></span>
                     </div>
                 </div>
-                <ul>
-                    <li><a href="#link4">Github</a></li>
-                    <li><a href="#link5">Youtube</a></li>
-                    <li><a href="#link6">Twitch</a></li>
-                    <li><a href="#link7">Kick</a></li>
-                    <li><a href="#link8">Twitter</a></li>
-                </ul>
-            </div>
+                <ul id="social-links"></ul>
+            </aside>
 
-            <!-- main content -->
             <main class="page-main">
                 <div class="prose">
                     <h1>Blog</h1>
                     <p>My thoughts, updates, and stories.</p>
 
-                    <!-- tag filter (optional) -->
-                    <div id="tag-filters"></div>
+                    <div class="blog-header">
+                        <div class="blog-meta">
+                            <span id="post-count">Loading posts…</span>
+                        </div>
+                    </div>
 
-
-                    <!-- posts container -->
                     <div id="post-grid"></div>
+                    <button id="back-to-top" aria-label="Back to top">↑</button>
                 </div>
             </main>
+
+            <aside id="filter-sidebar">
+                <div class="filter-heading"><i class="fas fa-sliders-h"></i> Filters</div>
+
+                <details class="filter-group" open>
+                    <summary><i class="fas fa-tags"></i> Tags</summary>
+                    <div id="sidebar-tag-filters"></div>
+                </details>
+
+                <details class="filter-group" open>
+                    <summary><i class="fas fa-layer-group"></i> Lists</summary>
+                    <div id="sidebar-list-filters"></div>
+                </details>
+
+                <details class="filter-group" open>
+                    <summary><i class="fas fa-sort-amount-down"></i> Sort</summary>
+                    <div id="sort-filters">
+                        <label class="filter-option">
+                            <input type="radio" name="sort" value="newest" checked>
+                            <span>Newest first</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="radio" name="sort" value="oldest">
+                            <span>Oldest first</span>
+                        </label>
+                    </div>
+                </details>
+
+                <details class="filter-group" open>
+                    <summary><i class="fas fa-object-group"></i> Group</summary>
+                    <div id="group-filters">
+                        <label class="filter-option">
+                            <input type="radio" name="group" value="none" checked>
+                            <span>None</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="radio" name="group" value="list">
+                            <span><i class="fas fa-layer-group"></i> By List</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="radio" name="group" value="tag">
+                            <span><i class="fas fa-tags"></i> By Tag</span>
+                        </label>
+                    </div>
+                </details>
+            </aside>
         </div>
 
-        <footer>
-            © 2026 EnderFare | template by <a href="https://nomnomnami.com/templates/">NomnomNami</a>!
-        </footer>
+        <footer></footer>
+
+        <script src="/js/loader.js" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-        <script src="blog.js"></script>
-        
+        <script src="blog.js" defer></script>
     </body>
 
 </html>

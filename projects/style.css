@@ -1,6 +1,5 @@
 /* ========== PROJECTS PAGE SPECIFIC ========== */
-/* main and .prose moved to common.css */
-
+/* main and .prose are now inherited from common.css */
 
 /* ========== PROJECT GRID ========== */
 #project-grid {
@@ -10,85 +9,7 @@
     gap: 1.5rem;
 }
 
-/* ========== PROJECT CARDS ========== */
-.project-card {
-    flex-shrink: 0;
-    display: block;
-    background: var(--bg-color);
-    border: 1px solid var(--favorite-color);
-    border-radius: var(--radius-md);
-    padding: 1.2rem 1.5rem;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    box-shadow: var(--shadow-sm);
-}
-
-.project-card:hover {
-    border-color: var(--accent-color);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-}
-
-.project-card .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.5rem;
-}
-
-.project-card .repo-name {
-    font-weight: bold;
-    font-size: 1.1rem;
-    color: var(--text-color);
-}
-
-.project-card .repo-name i {
-    color: var(--accent-color);
-    margin-right: 0.4rem;
-}
-
-.project-card .repo-stars {
-    color: var(--text-color2);
-    font-size: 0.9rem;
-}
-
-.project-card .repo-stars i {
-    color: #f1c40f;
-    margin-right: 0.2rem;
-}
-
-.project-card .repo-desc {
-    color: var(--text-color2);
-    font-size: 0.95rem;
-    margin: 0.6rem 0 0.8rem 0;
-    line-height: 1.4;
-}
-
-.project-card .repo-meta {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.8rem;
-    color: var(--text-color2);
-}
-
-.project-card .repo-language {
-    display: flex;
-    align-items: center;
-}
-
-.lang-dot {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    margin-right: 0.4rem;
-}
-
-.project-card .repo-updated {
-    color: var(--text-color2);
-}
-
-/* Staggered card animation – only if motion is allowed */
+/* ===== Staggered card animation â€“ only for projects page ===== */
 @media (prefers-reduced-motion: no-preference) {
     #project-grid .project-card {
         opacity: 0;
@@ -154,25 +75,331 @@
     }
 }
 
-/* Tablet & mobile height overrides – copied from common so they stay consistent */
-@media only screen and (max-width: 1024px) {
-    main {
-        max-height: 65vh;
-    }
+/* ========== FILTER SIDEBAR (like blog) ========== */
+#filter-sidebar {
+    border: 1px solid var(--favorite-color);
+    background: var(--bg-color);
+    padding: var(--spacing-sm);
+    min-width: 180px;
+    max-width: 240px;
+    flex-shrink: 0;
+    border-radius: var(--radius-md);
+    height: fit-content;
+    align-self: flex-start;
+    margin-left: var(--spacing-sm);
+    max-height: 70vh;
+    overflow-y: auto;
 }
 
+#filter-sidebar .filter-heading {
+    font-weight: bold;
+    font-size: 0.85rem;
+    color: var(--text-color2);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    border-bottom: 1px dashed var(--favorite-color);
+    padding-bottom: 0.5rem;
+}
+
+#filter-sidebar .filter-group {
+    margin-bottom: 0.6rem;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: var(--radius-sm);
+    padding: 0.2rem 0.4rem;
+}
+
+#filter-sidebar .filter-group summary {
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: var(--text-color2);
+    padding: 0.2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    list-style: none;
+}
+
+#filter-sidebar .filter-group summary::-webkit-details-marker {
+    display: none;
+}
+
+#filter-sidebar .filter-group summary::after {
+    content: "â–¾";
+    margin-left: auto;
+    font-size: 0.6rem;
+    transition: transform 0.2s;
+}
+
+#filter-sidebar .filter-group[open] summary::after {
+    transform: rotate(180deg);
+}
+
+/* Filter options (radio buttons) */
+#filter-sidebar .filter-option {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.7rem;
+    color: var(--text-color2);
+    padding: 0.15rem 0.2rem;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    transition: background 0.15s;
+    margin: 0.05rem 0;
+}
+
+#filter-sidebar .filter-option:hover {
+    background: rgba(252, 129, 74, 0.1);
+}
+
+#filter-sidebar .filter-option input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--text-color2);
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: all 0.15s;
+    margin: 0;
+    position: relative;
+    cursor: pointer;
+}
+
+#filter-sidebar .filter-option input[type="radio"]:checked {
+    border-color: var(--accent-color);
+    background: var(--accent-color);
+    box-shadow: inset 0 0 0 3px var(--bg-color);
+}
+
+#filter-sidebar .filter-option span:not(.filter-count) {
+    flex: 1;
+}
+
+#filter-sidebar .filter-option .filter-count {
+    font-size: 0.55rem;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0 0.3rem;
+    border-radius: 1rem;
+    color: var(--text-color2);
+    opacity: 0.7;
+}
+
+#filter-sidebar .filter-option:has(input:checked) {
+    background: rgba(252, 129, 74, 0.12);
+    border-radius: 0.2rem;
+}
+
+#filter-sidebar .filter-option:has(input:checked) .filter-count {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    opacity: 1;
+}
+
+#filter-sidebar .filter-option.all-option {
+    font-weight: bold;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.3rem;
+    margin-bottom: 0.2rem;
+}
+
+/* Toggle switch inside sidebar â€“ reuse common.css styles but adjust layout */
+#fork-toggle-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.2rem 0;
+    margin: 0;
+}
+
+.toggle-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    cursor: pointer;
+    font-size: 0.7rem;
+    color: var(--text-color2);
+    user-select: none;
+    transition: color 0.2s;
+}
+
+.toggle-switch:hover {
+    color: var(--text-color);
+}
+
+.toggle-switch input {
+    display: none;
+}
+
+.toggle-switch .slider {
+    position: relative;
+    width: 32px;
+    height: 18px;
+    background: var(--bg-color);
+    border: 1px solid var(--favorite-color);
+    border-radius: 40px;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-switch .slider::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 12px;
+    height: 12px;
+    background: var(--text-color2);
+    border-radius: 50%;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-switch input:checked+.slider {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 12px rgba(252, 129, 74, 0.35), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-switch input:checked+.slider::before {
+    transform: translateX(14px);
+    background: var(--bg-color);
+}
+
+.toggle-switch:hover .slider {
+    border-color: var(--accent-color);
+}
+
+.toggle-switch input:checked:hover+.slider {
+    box-shadow: 0 0 20px rgba(252, 129, 74, 0.5), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== Fork indicator badge on cards ===== */
+.fork-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: 0.55rem;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-color2);
+    padding: 0.05rem 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid var(--text-color2);
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-left: 0.5rem;
+    opacity: 0.7;
+}
+
+.fork-indicator i {
+    font-size: 0.5rem;
+}
+
+/* ===== Project card tweaks ===== */
+.project-card .repo-name {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+}
+
+/* Responsive */
 @media only screen and (max-width: 768px) {
-    main {
-        max-height: 50vh;
-        min-height: 300px;
-        order: 1;
+    #filter-sidebar {
+        min-width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        order: 3;
+        max-height: 300px;
     }
 }
 
-@media only screen and (max-width: 480px) {
-    main {
-        max-height: 40vh;
-        min-height: 250px;
-        order: 1;
-    }
+/* ===== Source badges ===== */
+.source-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: 0.55rem;
+    padding: 0.05rem 0.5rem;
+    border-radius: 1rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-left: 0.5rem;
+    border: 1px solid var(--text-color2);
+    opacity: 0.8;
+}
+
+.source-badge.github {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-color2);
+    border-color: var(--text-color2);
+}
+
+.source-badge.other {
+    background: rgba(252, 129, 74, 0.15);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+/* fork indicator already defined in the previous answer, but ensure it's present */
+.fork-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: 0.55rem;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-color2);
+    padding: 0.05rem 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid var(--text-color2);
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-left: 0.5rem;
+    opacity: 0.7;
+}
+
+.fork-indicator i {
+    font-size: 0.5rem;
+}
+
+/* Tweak for the source filter counts */
+#sidebar-source-filters .filter-option .filter-count {
+    min-width: 1.2rem;
+    text-align: center;
+}
+
+/* Hint text under fork toggle */
+.fork-hint {
+    color: var(--text-color2);
+    opacity: 0.5;
+    font-size: 0.6rem;
+    margin-top: 0.2rem;
+}
+
+.spoken-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: 0.55rem;
+    background: rgba(100, 200, 255, 0.15);
+    color: #8cf0ff;
+    padding: 0.05rem 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid #8cf0ff;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-left: 0.5rem;
+    opacity: 0.8;
+}
+
+.spoken-badge i {
+    font-size: 0.5rem;
 }

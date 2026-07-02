@@ -188,22 +188,17 @@ h4 {
 #sidebar {
     border: 1px solid var(--favorite-color);
     min-width: 160px;
-    /* was 220px – much narrower */
     max-width: 190px;
-    /* was 260px */
     flex-shrink: 0;
     padding: var(--spacing-sm);
-    /* was var(--spacing-md) – less internal spacing */
     display: flex;
     flex-direction: column;
     gap: var(--spacing-sm);
-    /* was var(--spacing-md) */
 }
 
 #avatar {
     margin: 0 auto;
     max-width: 110px;
-    /* was 180px – fits the slimmer sidebar */
     text-align: center;
 }
 
@@ -220,7 +215,6 @@ h4 {
 /* ===== STYLIZED BIO ===== */
 #bio {
     padding: var(--spacing-sm);
-    /* was var(--spacing-md) */
     text-align: center;
     background: var(--bg-color);
     border: 1px solid var(--favorite-color);
@@ -230,7 +224,6 @@ h4 {
 
 .bio-name {
     font-size: 1.2rem;
-    /* was 1.6rem – fits the narrower space */
     font-weight: bold;
     color: var(--accent-color);
     letter-spacing: 1px;
@@ -240,7 +233,6 @@ h4 {
 
 .bio-tagline {
     font-size: 0.7rem;
-    /* was 0.8rem */
     font-style: italic;
     color: var(--text-color2);
     margin-bottom: 0.6rem;
@@ -252,9 +244,7 @@ h4 {
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.2rem 0.6rem;
-    /* tighter gaps */
     font-size: 0.75rem;
-    /* was 0.9rem */
     padding-top: 0.6rem;
     border-top: 1px dashed var(--favorite-color);
 }
@@ -262,11 +252,9 @@ h4 {
 #sidebar ul {
     list-style-type: "✦ ";
     padding-left: var(--spacing-xs);
-    /* was 0.2rem – now 0.5rem for breathing room */
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
-    /* slightly more than 0.2rem for readability */
 }
 
 #sidebar li {
@@ -279,7 +267,6 @@ h4 {
     font-size: 0.8rem;
     transition: color 0.3s ease, transform 0.3s ease, padding-left 0.3s ease;
     padding: 0.4rem 0.6rem;
-    /* added horizontal padding so text doesn't touch the edge */
     display: block;
 }
 
@@ -292,7 +279,6 @@ h4 {
 /* ========== NAVIGATION ========== */
 nav {
     padding: 0.2rem var(--spacing-md);
-    /* was var(--spacing-sm) – much slimmer */
     font-weight: bold;
     background-color: rgba(0, 0, 0, 0.3);
 }
@@ -301,7 +287,6 @@ nav ul {
     max-width: 1300px;
     margin: 0 auto;
     line-height: 1.8rem;
-    /* was 2.5rem – reduced height */
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -309,7 +294,6 @@ nav ul {
     padding-left: 0;
     justify-content: center;
     gap: 0.4rem;
-    /* was var(--spacing-sm) – tighter */
 }
 
 nav li {
@@ -320,11 +304,9 @@ nav li a {
     background-color: var(--bg-color);
     border: 1px solid var(--favorite-color);
     padding: 0.2rem 1.2rem;
-    /* slimmer top/bottom padding */
     text-decoration: none;
     transition: all 0.3s ease-out;
     font-size: clamp(0.8rem, 1.5vw, 0.95rem);
-    /* slightly smaller */
     white-space: nowrap;
     display: inline-block;
 }
@@ -361,7 +343,65 @@ footer a {
     color: var(--link-color);
 }
 
-/* ========== RESPONSIVE ========== */
+/* ========== COMMON PAGE LAYOUT (main, .prose, .img-right) ========== */
+main {
+    flex: 1;
+    min-width: 0;
+    border: 1px solid darkslateblue;
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    max-height: 70vh;
+    overflow: auto;
+    background-color: var(--bg-color);
+    background-image: var(--gradient-bg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.prose {
+    background: transparent;
+    margin: 0;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-sm);
+    max-width: 100%;
+}
+
+.img-right {
+    float: right;
+    margin: 0 0 var(--spacing-md) var(--spacing-md);
+    max-width: 45%;
+}
+
+.img-right img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-sm);
+}
+
+/* ========== RESPONSIVE OVERRIDES FOR MAIN ========== */
+@media only screen and (max-width: 1024px) {
+    main {
+        max-height: 65vh;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    main {
+        max-height: 50vh;
+        min-height: 300px;
+        order: 1;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    main {
+        max-height: 40vh;
+        min-height: 250px;
+        order: 1;
+    }
+}
+
+/* ========== RESPONSIVE (general) ========== */
 @media only screen and (max-width: 1024px) {
     #sidebar {
         min-width: 250px;
@@ -555,7 +595,7 @@ footer a {
 }
 
 /* ============================================================
-   PROJECTS PAGE – TOPIC SCROLL, FORK TOGGLE, CARDS
+   PROJECTS PAGE â€“ TOPIC SCROLL, FORK TOGGLE, CARDS
    ============================================================ */
 
 /* ===== TOPIC BADGES (inside cards) ===== */
@@ -716,7 +756,7 @@ footer a {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Checked state – ON */
+/* Checked state â€“ ON */
 .toggle-switch input:checked+.slider {
     background: var(--accent-color);
     border-color: var(--accent-color);
@@ -822,14 +862,13 @@ footer a {
     line-height: 1.4;
 }
 
-/* ===== META (language + updated) – with right padding for GitHub icon ===== */
+/* ===== META (language + updated) â€“ with right padding for GitHub icon ===== */
 .project-card .repo-meta {
     display: flex;
     justify-content: space-between;
     font-size: 0.8rem;
     color: var(--text-color2);
     padding-right: 2.2rem;
-    /* prevent overlap with the GitHub icon */
 }
 
 .project-card .repo-language {
@@ -875,7 +914,7 @@ footer a {
     pointer-events: auto;
 }
 
-/* local indicator – orange left border */
+/* local indicator â€“ orange left border */
 .project-card.has-local {
     border-left: 3px solid var(--accent-color);
 }
