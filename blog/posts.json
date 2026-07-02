@@ -73,22 +73,6 @@
                 "personal"
             ],
             "excerpt": "Just some old ramblings."
-        },
-        {
-            "id": 4,
-            "slug": "chapter-3-1",
-            "title": "Chapter 3.1 – The Draft",
-            "date": "2026-07-01",
-            "tags": [
-                "writing"
-            ],
-            "format": "markdown",
-            "pinned": false,
-            "lists": [
-                "chapter-3"
-            ],
-            "parent": "chapter-3",
-            "excerpt": "A deeper look into the draft of chapter 3."
         }
     ]
 }
