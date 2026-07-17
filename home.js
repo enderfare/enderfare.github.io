@@ -3,9 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ---- Fetch blog posts ----
     async function fetchPosts() {
-        const res = await fetch('/blog/posts.json');
-        if (!res.ok) throw new Error('Failed to load posts');
-        const data = await res.json();
+        const data = await window.blogData.getBlogData();
         return data.posts || [];
     }
 

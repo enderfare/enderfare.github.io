@@ -1,333 +1,652 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Mor Sueñosombrío · Ficha personaje</title>
-		<link rel="icon" type="image/x-icon" href="images/icon.png" />
-		<link href="style.css" rel="stylesheet" type="text/css" media="all" />
-		<style>
-			html {
-				background: #0f0722;
-				background: linear-gradient(180deg, #0f0722 0%, #2e1a47 100%);
-				background-attachment: fixed;
-			}
-			body {
-				background-image: url(images/bg.png);
-				background-attachment: fixed;
-			}
-		</style>
-	</head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mor Sueñosombrío · Ender's Domain</title>
+    <link rel="icon" type="image/jpeg" href="/media/images/icon.jpg" />
+    <!-- Global styles -->
+    <link href="/common.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom character styles (uses site variables) -->
+    <style>
+        /* ===== OVERRIDE & EXTEND SITE VARIABLES ===== */
+        :root {
+            --character-bg: var(--bg-color);
+            --character-border: var(--favorite-color);
+            --character-text: var(--text-color);
+            --character-text2: var(--text-color2);
+            --character-accent: var(--accent-color);
+            --character-heading-bg: rgba(0, 0, 0, 0.2);
+            --character-table-odd: rgba(255, 255, 255, 0.05);
+            --character-table-even: rgba(255, 255, 255, 0.1);
+            --character-comment-bg: rgba(0, 0, 0, 0.2);
+            --character-tab-bg: rgba(0, 0, 0, 0.15);
+            --character-tab-hover: rgba(252, 129, 74, 0.2);
+            --character-tab-active: var(--accent-color);
+            --character-tab-text: var(--text-color2);
+            --character-tab-text-active: var(--bg-color);
+        }
 
-	<body>
-		<header>
-			<a href="/index.html"><h1>Inicio</h1></a>
-		</header>
+        /* ----- Character content inside main ----- */
+        .character-main {
+            padding: 0;
+            background: transparent;
+            max-height: none;
+            overflow: visible;
+            border: none;
+            border-radius: 0;
+        }
 
-		<main>
-			<h2 class="character-name">
-				<img src="images/icon.png" class="icon" alt="icono" />Mor Sueñosombrío
-			</h2>
+        .character-main .prose {
+            padding: 0;
+        }
 
-			<aside class="bio">
-				<img src="images/portrait.png" class="avatar" alt="retrato" />
-				
-				<table>
-					<tr>
-						<td>Título</td>
-						<td>Héroe de los sueños</td>
-					</tr>
-					<tr>
-						<td>Alineamiento</td>
-						<td>Legal neutral</td>
-					</tr>
-					<tr>
-						<td>Pronombres</td>
-						<td>He/Him</td>
-					</tr>
-					<tr>
-						<td>Edad</td>
-						<td>16</td>
-					</tr>
-					<tr>
-						<td>Cumpleaños</td>
-						<td>Desconocido (encontrado en luna nueva)</td>
-					</tr>
-					<tr>
-						<td>Altura</td>
-						<td>~170 cm</td>
-					</tr>
-					<tr>
-						<td>Comida fav</td>
-						<td>Leche con miel</td>
-					</tr>
-					<tr>
-						<td>Idiomas</td>
-						<td>Humano, Sueños</td>
-					</tr>
-				</table>
-			</aside>
+        /* ---- LISTS: add left padding so they aren't flush left ---- */
+        .character-main .prose ul,
+        .character-main .prose ol {
+            padding-left: 1.5rem;
+            margin: 0.5rem 0;
+        }
 
-			<section id="info">
-				<h3 class="gold">info</h3>
-				<p class="quote">
-					«Velaré por los que duermen, pues en su indefensión reside la
-					esperanza del mañana.»
-				</p>
-				<p>
-					<strong>Mor Sueñosombrío</strong> es un joven paladín de origen
-					humilde, destinado a proteger el reino de los sueños. Fue encontrado
-					siendo un bebé a las puertas del Santuario de los Suspiros, envuelto
-					en seda negra. Desde entonces ha vivido allí, descubriendo poco a poco
-					su vínculo con el mundo onírico. Cuando las pesadillas amenazan, su
-					mirada gris se vuelve plateada y su determinación se vuelve
-					inquebrantable.
-				</p>
-			</section>
+        .character-main .prose dl {
+            padding-left: 0.5rem;
+            margin: 0.5rem 0;
+        }
 
-			<section id="personalidad">
-				<h3 class="purple">personalidad</h3>
-				<p>
-					<strong>Rasgos:</strong> Tranquilo, paciente, habla con tono suave y
-					algo hipnótico. A veces se queda dormido si el tema le aburre, pero
-					ante el peligro es el primero en despertar. Tiene una madurez inusual,
-					fruto de haber vivido los sueños de los demás. Protege especialmente a
-					niños y ancianos.
-				</p>
-				<p>
-					<strong>Ideales:</strong> Bien común (todos merecen descansar),
-					protección (los que duermen son vulnerables), misterio (los sueños son
-					un regalo que no debe corromperse).
-				</p>
-				<p>
-					<strong>Vínculos:</strong> Su hogar es el Santuario de los Suspiros;
-					el sacerdote Hadrianus es su figura paterna. Siente una conexión
-					profunda con los aldeanos a los que ha ayudado.
-				</p>
-				<p>
-					<strong>Defectos:</strong> Ingenuo ante lo mundano (amor, dinero,
-					política). Confía demasiado en quienes parecen inocentes. A veces le
-					cuesta distinguir lo real de lo onírico.
-				</p>
-				<p>
-					<em>Nota:</em> Cuando siente emociones fuertes, su cuerpo adopta
-					rasgos más animalísticos y sus ojos se vuelven morados con esclerótica
-					negra.
-				</p>
-			</section>
+        .character-main .prose dt {
+            font-weight: bold;
+            margin-top: 0.3rem;
+            color: var(--character-text);
+        }
 
-			<section id="relaciones">
-				<h3 class="red">relaciones</h3>
+        .character-main .prose dd {
+            margin-left: 1.5rem;
+            margin-bottom: 0.3rem;
+            color: var(--character-text2);
+        }
 
-				<h4>FAMILIA</h4>
-				<dl>
-					<dt><img src="images/no-icon.png" class="icon" />Hadrianus</dt>
-					<dd>
-						Anciano sacerdote del Santuario, lo crió desde que lo encontraron en
-						la puerta. Le enseñó el valor del descanso y la protección.
-					</dd>
-				</dl>
+        /* ---- Bio (floating) ---- */
+        .char-bio {
+            float: right;
+            border: 2px solid var(--character-border);
+            margin-left: 16px;
+            max-width: 280px;
+            background: var(--character-bg);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
 
-				<h4>AMIGOS</h4>
-				<dl>
-					<dt>
-						<img src="images/no-icon.png" class="icon" />Aldeanos de la comarca
-					</dt>
-					<dd>
-						Lo consideran su campeón. Muchos le guardan secreto cuando huye de
-						amenazas, gracias a su origen humilde (rasgo: Hospitalidad rural).
-					</dd>
-					<dt><img src="images/no-icon.png" class="icon" />Niños del pueblo</dt>
-					<dd>
-						Mor disfruta contándoles cuentos antes de dormir; ellos no le temen
-						a su mirada plateada.
-					</dd>
-				</dl>
+        .char-bio img.avatar {
+            display: block;
+            max-width: 100%;
+            border-radius: 0;
+        }
 
-				<h4>ENEMIGOS</h4>
-				<dl>
-					<dt>
-						<img src="images/no-icon.png" class="icon" />Culto de las Pesadillas
-					</dt>
-					<dd>
-						Una secta que intenta corromper los sueños de los mortales. Hace dos
-						años provocaron una plaga de pesadillas que Mor logró detener.
-					</dd>
-				</dl>
-			</section>
+        .char-bio table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
 
-			<section id="historia">
-				<h3 class="blue">historia</h3>
-				<p>
-					La primera memoria de Mor es la fachada gris del Santuario de los
-					Suspiros. Apareció una noche de luna nueva, envuelto en seda negra tan
-					fina que parecía sueño tejido. Dormía profundamente, y cualquiera que
-					intentara despertarlo caía en un sueño plácido.
-				</p>
-				<p>
-					Criado por el sacerdote Hadrianus, Mor creció como un niño extraño y
-					callado. Podía quedarse dormido en cualquier sitio y despertar
-					recordando sueños de otros mundos. A veces resolvía problemas de los
-					aldeanos con información que no podía conocer, o predecía tormentas
-					por los sueños de las aves.
-				</p>
-				<h4>El despertar del paladín</h4>
-				<p>
-					A los 14 años, una plaga de pesadillas asoló la comarca. La gente
-					dejaba de dormir, volviéndose violenta. Los adultos del templo no
-					podían hacer nada. Una noche, Mor se plantó en el centro de la villa
-					y, con determinación férrea, pronunció en silencio un juramento al
-					concepto del Descanso Eterno. Una luz tenue, como de luna llena, emanó
-					de él. Caminó entre los durmientes agitados y, al tocar sus frentes,
-					pequeños espantos etéreos salieron de sus cuerpos. Con su espada de
-					entrenamiento, que de repente brillaba con luz de estrellas, los
-					disipó. Así invocó el poder de un paladín, uniendo su alma al dominio
-					de su padre divino: la protección del reino de los Sueños.
-				</p>
-				<details class="spoilers">
-					<summary>⚔️ JURAMENTO DE LA VIGILIA SILENTE</summary>
-					<p>
-						«Velaré por los que duermen, pues en su indefensión reside la
-						esperanza del mañana. Seré el muro entre este mundo y las pesadillas
-						que acechan. Guardaré el silencio de la noche y protegeré la luz que
-						reside en los sueños de los mortales. Que mi espada sea el último
-						pensamiento de las tinieblas y el primero de un nuevo y pacífico
-						amanecer.»
-					</p>
-				</details>
-				<p>
-					<strong>Trasfondo: Héroe de los sueños</strong> — De clase social
-					humilde, pero destinado a proteger a la gente común. Su naturaleza
-					divina se manifestó claramente durante la plaga. Desde entonces lleva
-					a cabo su misión con la ayuda de los aldeanos, que lo ocultan cuando
-					es necesario (rasgo: Hospitalidad rural).
-				</p>
-			</section>
+        .char-bio td {
+            padding: 0.4rem 0.6rem;
+            vertical-align: top;
+            color: var(--character-text);
+        }
 
-			<section id="trivia">
-				<h3 class="green">trivia</h3>
-				<ul>
-					<li>Puede quedarse dormido en cualquier postura y lugar.</li>
-					<li>A menudo habla en sueños, y lo que dice suele ser profético.</li>
-					<li>
-						Su espada de entrenamiento brilla con luz de estrellas cuando
-						combate pesadillas.
-					</li>
-					<li>Le encanta la leche con miel antes de dormir.</li>
-					<li>
-						Los animales parecen sentir confianza en él, especialmente los
-						gatos.
-					</li>
-				</ul>
-			</section>
+        .char-bio tr:nth-child(odd) td {
+            background: var(--character-table-odd);
+        }
+        .char-bio tr:nth-child(even) td {
+            background: var(--character-table-even);
+        }
 
-			<section id="gallery">
-				<h3 class="orange">galería</h3>
-				<div class="gallery-grid" style="--pages: 3">
-					<details class="gallery-page" name="g-page" style="--n: 1" open>
-						<summary>página 1</summary>
-						<div class="img-gallery">
-							<a href="images/s2_bust.png">
-								<figure>
-									<img src="images/s2_bust.png" loading="lazy" alt="boceto" />
-									<figcaption>Mor en el santuario (boceto)</figcaption>
-								</figure>
-							</a>
-							<a href="images/concept.png">
-								<figure>
-									<img src="images/concept.png" loading="lazy" alt="concepto" />
-									<figcaption>diseño inicial · aspecto onírico</figcaption>
-								</figure>
-							</a>
-						</div>
-					</details>
-					<details class="gallery-page" name="g-page" style="--n: 2" open>
-						<summary>página 2</summary>
-						<div class="img-gallery">
-							<details>
-								<summary>[pesadilla · contenido sensible]</summary>
-								<a href="images/concept2.png">
-									<figure>
-										<img
-											src="images/concept2.png"
-											loading="lazy"
-											alt="concepto oscuro"
-										/>
-										<figcaption>forma parcialmente animalizada</figcaption>
-									</figure>
-								</a>
-							</details>
-						</div>
-					</details>
-					<details class="gallery-page" name="g-page" style="--n: 3" open>
-						<summary>página 3</summary>
-						<div class="img-gallery">
-							<p>Próximamente: ilustraciones de la plaga de pesadillas.</p>
-						</div>
-					</details>
-				</div>
-			</section>
+        .char-bio td:first-child {
+            font-weight: bold;
+            width: 40%;
+            color: var(--character-accent);
+        }
 
-			<section>
-				<h3 class="pink">enlaces</h3>
-				<ul>
-					<li><a href="#">Cómic / galería de Mor (próximamente)</a></li>
-					<li>
-						Plantilla original de
-						<a href="https://nomnomnami.com/" target="_blank">NomnomNami</a>
-					</li>
-				</ul>
-			</section>
+        /* ---- Headings ---- */
+        .character-main h2,
+        .character-main h3 {
+            background: var(--character-heading-bg);
+            padding: 0.4rem 0.8rem;
+            border-radius: var(--radius-sm);
+            color: var(--character-text);
+            margin-top: 1.2rem;
+        }
 
-			<section id="comments">
-				<h2>comentarios</h2>
-				<article class="comment">
-					<div class="user">
-						<img src="images/no-icon.png" class="icon" />Hadrianus
-						<small>(+12)</small>
-					</div>
-					<p>
-						Es un buen chico, aunque a veces lo encuentro dormido en las
-						escaleras. Tiene un corazón puro.
-					</p>
-				</article>
-				<article class="comment">
-					<div class="user">
-						<img src="images/no-icon.png" class="icon" />Lía (panadera)
-					</div>
-					<p>
-						La otra noche tuve una pesadilla horrible, pero Mor apareció en mi
-						sueño y me ayudó a despertar. ¡No sé cómo lo hizo!
-					</p>
-					<details class="reply">
-						<summary>ver respuestas (2)</summary>
-						<article class="comment">
-							<div class="user">
-								<img src="images/no-icon.png" class="icon" />Aldeano
-							</div>
-							<p>A mí también me pasó. Desde entonces duermo tranquilo.</p>
-						</article>
-						<article class="comment">
-							<div class="user">
-								<img src="images/no-icon.png" class="icon" />Mor
-							</div>
-							<p>... *sonrisa somnolienta*</p>
-						</article>
-					</details>
-				</article>
-				<article class="comment">
-					<em>[System: este es un perro de las praderas durmiendo]</em>
-				</article>
-			</section>
+        .character-main h2:first-of-type {
+            margin-top: 0;
+        }
 
-			<hr />
-			<nav>
-				<ul>
-					<li><a href="/index.html">[Inicio]</a></li>
-					<li><a href="#">[otros personajes]</a></li>
-				</ul>
-			</nav>
-		</main>
-		<footer>© 2025 · El rincón de los sueños</footer>
-	</body>
+        .character-main h4 {
+            border-bottom: 2px dashed var(--character-border);
+            padding-bottom: 0.2rem;
+            color: var(--character-accent);
+        }
+
+        /* ---- Quote ---- */
+        .quote {
+            border-left: 6px solid var(--character-accent);
+            padding: 0.5rem 1.2rem;
+            font-style: italic;
+            color: var(--character-text2);
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        }
+
+        /* ---- Spoilers ---- */
+        .spoilers {
+            background: rgba(0, 0, 0, 0.2);
+            border: 2px dashed var(--character-accent);
+            padding: 0.5rem 1rem;
+            margin: 0.5rem 0;
+            border-radius: var(--radius-sm);
+        }
+        .spoilers summary {
+            color: var(--character-accent);
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* ============================================================
+           GALLERY – NUEVO SISTEMA DE PESTAÑAS CON JS (FUNCIONAL 100%)
+           ============================================================ */
+        .gallery-grid {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        /* Contenedor de los botones de pestaña */
+        .gallery-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            border-bottom: 2px solid var(--character-border);
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        /* Cada pestaña es un botón */
+        .tab-btn {
+            padding: 0.4rem 1.2rem;
+            border: 2px solid var(--character-border);
+            border-bottom: none;
+            border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+            background: var(--character-tab-bg);
+            color: var(--character-tab-text);
+            font-weight: bold;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+            margin-bottom: -2px;
+            font-family: inherit;
+            line-height: 1.4;
+            pointer-events: auto;
+        }
+
+        .tab-btn:hover {
+            background: var(--character-tab-hover);
+            color: var(--character-text);
+        }
+
+        .tab-btn.active {
+            background: var(--character-tab-active);
+            color: var(--character-tab-text-active);
+            border-color: var(--character-accent);
+            box-shadow: 0 -2px 8px rgba(252, 129, 74, 0.2);
+        }
+
+        /* Contenedor de paneles */
+        .tab-panels {
+            width: 100%;
+            border: 2px solid var(--character-border);
+            border-top: none;
+            border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+            background: rgba(0, 0, 0, 0.08);
+            padding: 1rem 0.5rem;
+            min-height: 100px;
+        }
+
+        .tab-panel {
+            display: none;
+            pointer-events: auto;
+        }
+
+        .tab-panel.active {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        /* Estilos de las miniaturas dentro de la galería */
+        .tab-panel figure {
+            margin: 0;
+            max-width: 180px;
+            border: 2px solid var(--character-border);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            background: var(--character-bg);
+            transition: border-color 0.2s, transform 0.2s;
+            pointer-events: auto;
+        }
+
+        .tab-panel figure:hover {
+            border-color: var(--character-accent);
+            transform: scale(1.02);
+        }
+
+        .tab-panel img {
+            max-width: 100%;
+            display: block;
+            height: auto;
+            pointer-events: auto;
+        }
+
+        .tab-panel figcaption {
+            font-size: 0.7rem;
+            text-align: center;
+            padding: 0.2rem 0.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            color: var(--character-text2);
+        }
+
+        .tab-panel a {
+            text-decoration: none;
+            pointer-events: auto;
+        }
+
+        /* Spoiler anidado dentro de un panel */
+        .tab-panel details > summary {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 0.5rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            list-style: none;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--character-border);
+            color: var(--character-text2);
+            font-weight: bold;
+            pointer-events: auto;
+        }
+
+        .tab-panel details > summary:hover {
+            background: var(--character-tab-hover);
+            color: var(--character-text);
+        }
+
+        .tab-panel details[open] > summary {
+            display: none;
+        }
+
+        .tab-panel details {
+            pointer-events: auto;
+            width: 100%;
+        }
+
+        .tab-panel .empty-message {
+            color: var(--character-text2);
+            text-align: center;
+            width: 100%;
+            padding: 0.5rem 0;
+        }
+
+        /* ---- Comments ---- */
+        .comment {
+            border: 2px solid var(--character-border);
+            border-radius: var(--radius-sm);
+            padding: 0.5rem 1rem;
+            margin-bottom: 0.8rem;
+            background: var(--character-comment-bg);
+        }
+        .comment .user {
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .comment .user small {
+            font-weight: normal;
+            opacity: 0.7;
+        }
+        .reply {
+            margin-left: 1.5rem;
+            border-left: 2px solid var(--character-border);
+            padding-left: 1rem;
+        }
+        .reply summary {
+            color: var(--character-text2);
+            cursor: pointer;
+            list-style: none;
+            text-decoration: underline;
+        }
+        .reply summary:hover {
+            color: var(--character-accent);
+        }
+        .reply[open] summary {
+            display: none;
+        }
+
+        /* ---- Misc ---- */
+        .icon {
+            height: 32px;
+            width: 32px;
+            border-radius: 0.2rem;
+            vertical-align: middle;
+            margin-right: 0.4rem;
+            image-rendering: pixelated;
+        }
+        .character-name {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.6rem;
+            margin-top: 0;
+        }
+        .character-name img.icon {
+            height: 48px;
+            width: 48px;
+        }
+
+        /* ---- Clearfix for floated bio ---- */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* ---- Back to all characters link ---- */
+        .back-to-ocs {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.4rem 1.2rem;
+            border: 2px solid var(--character-accent);
+            border-radius: var(--radius-md);
+            color: var(--character-accent);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .back-to-ocs:hover {
+            background: var(--character-accent);
+            color: var(--bg-color);
+        }
+
+        /* ---- Responsive ---- */
+        @media only screen and (max-width: 768px) {
+            .char-bio {
+                float: none;
+                max-width: 100%;
+                margin: 0 auto 1rem;
+            }
+            .character-name {
+                font-size: 1.3rem;
+                flex-wrap: wrap;
+            }
+            .tab-btn {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.75rem;
+            }
+            .tab-panel figure {
+                max-width: 130px;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .tab-btn {
+                padding: 0.2rem 0.5rem;
+                font-size: 0.65rem;
+            }
+            .tab-panel figure {
+                max-width: 100px;
+            }
+        }
+    </style>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+
+    <!-- GLOBAL HEADER -->
+    <header>
+        <h1>my original characters</h1>
+    </header>
+
+    <!-- GLOBAL NAV (loaded by loader.js) -->
+    <nav>
+        <ul></ul>
+    </nav>
+
+    <!-- MAIN LAYOUT -->
+    <div id="content">
+        <!-- LEFT SIDEBAR (loaded by loader.js) -->
+        <div id="sidebar">
+            <div id="avatar">
+                <img src="/media/images/icon.jpg" alt="my icon" />
+            </div>
+            <div id="bio">
+                <div class="bio-name" id="bio-name"></div>
+                <div class="bio-tagline" id="bio-tagline"></div>
+                <div class="bio-details">
+                    <span><span class="bio-label">a:</span> <span class="bio-value" id="bio-age"></span></span>
+                    <span><span class="bio-label">p:</span> <span class="bio-value" id="bio-pronouns"></span></span>
+                    <span><span class="bio-label">s:</span> <span class="bio-value" id="bio-sexuality"></span></span>
+                </div>
+            </div>
+            <ul id="social-links"></ul>
+        </div>
+
+        <!-- MAIN CONTENT (character page) -->
+        <main class="character-main">
+            <div class="prose clearfix">
+
+                <!-- ===== ORIGINAL MOR CONTENT (kept intact) ===== -->
+                <h2 class="character-name">
+                    <img src="images/icon.png" class="icon" alt="icono" />
+                    Mor Sueñosombrío
+                </h2>
+
+                <aside class="char-bio">
+                    <img src="images/portrait.png" class="avatar" alt="retrato" />
+                    <table>
+                        <tr><td>Título</td><td>Héroe de los sueños</td></tr>
+                        <tr><td>Alineamiento</td><td>Legal neutral</td></tr>
+                        <tr><td>Pronombres</td><td>He/Him</td></tr>
+                        <tr><td>Edad</td><td>16</td></tr>
+                        <tr><td>Cumpleaños</td><td>Desconocido (encontrado en luna nueva)</td></tr>
+                        <tr><td>Altura</td><td>~170 cm</td></tr>
+                        <tr><td>Comida fav</td><td>Leche con miel</td></tr>
+                        <tr><td>Idiomas</td><td>Humano, Sueños</td></tr>
+                    </table>
+                </aside>
+
+                <section id="info">
+                    <h3 class="gold">info</h3>
+                    <p class="quote">«Velaré por los que duermen, pues en su indefensión reside la esperanza del mañana.»</p>
+                    <p><strong>Mor Sueñosombrío</strong> es un joven paladín de origen humilde, destinado a proteger el reino de los sueños. Fue encontrado siendo un bebé a las puertas del Santuario de los Suspiros, envuelto en seda negra. Desde entonces ha vivido allí, descubriendo poco a poco su vínculo con el mundo onírico. Cuando las pesadillas amenazan, su mirada gris se vuelve plateada y su determinación se vuelve inquebrantable.</p>
+                </section>
+
+                <section id="personalidad">
+                    <h3 class="purple">personalidad</h3>
+                    <p><strong>Rasgos:</strong> Tranquilo, paciente, habla con tono suave y algo hipnótico. A veces se queda dormido si el tema le aburre, pero ante el peligro es el primero en despertar. Tiene una madurez inusual, fruto de haber vivido los sueños de los demás. Protege especialmente a niños y ancianos.</p>
+                    <p><strong>Ideales:</strong> Bien común (todos merecen descansar), protección (los que duermen son vulnerables), misterio (los sueños son un regalo que no debe corromperse).</p>
+                    <p><strong>Vínculos:</strong> Su hogar es el Santuario de los Suspiros; el sacerdote Hadrianus es su figura paterna. Siente una conexión profunda con los aldeanos a los que ha ayudado.</p>
+                    <p><strong>Defectos:</strong> Ingenuo ante lo mundano (amor, dinero, política). Confía demasiado en quienes parecen inocentes. A veces le cuesta distinguir lo real de lo onírico.</p>
+                    <p><em>Nota:</em> Cuando siente emociones fuertes, su cuerpo adopta rasgos más animalísticos y sus ojos se vuelven morados con esclerótica negra.</p>
+                </section>
+
+                <section id="relaciones">
+                    <h3 class="red">relaciones</h3>
+                    <h4>FAMILIA</h4>
+                    <dl>
+                        <dt><img src="images/no-icon.png" class="icon" />Hadrianus</dt>
+                        <dd>Anciano sacerdote del Santuario, lo crió desde que lo encontraron en la puerta. Le enseñó el valor del descanso y la protección.</dd>
+                    </dl>
+                    <h4>AMIGOS</h4>
+                    <dl>
+                        <dt><img src="images/no-icon.png" class="icon" />Aldeanos de la comarca</dt>
+                        <dd>Lo consideran su campeón. Muchos le guardan secreto cuando huye de amenazas, gracias a su origen humilde (rasgo: Hospitalidad rural).</dd>
+                        <dt><img src="images/no-icon.png" class="icon" />Niños del pueblo</dt>
+                        <dd>Mor disfruta contándoles cuentos antes de dormir; ellos no le temen a su mirada plateada.</dd>
+                    </dl>
+                    <h4>ENEMIGOS</h4>
+                    <dl>
+                        <dt><img src="images/no-icon.png" class="icon" />Culto de las Pesadillas</dt>
+                        <dd>Una secta que intenta corromper los sueños de los mortales. Hace dos años provocaron una plaga de pesadillas que Mor logró detener.</dd>
+                    </dl>
+                </section>
+
+                <section id="historia">
+                    <h3 class="blue">historia</h3>
+                    <p>La primera memoria de Mor es la fachada gris del Santuario de los Suspiros. Apareció una noche de luna nueva, envuelto en seda negra tan fina que parecía sueño tejido. Dormía profundamente, y cualquiera que intentara despertarlo caía en un sueño plácido.</p>
+                    <p>Criado por el sacerdote Hadrianus, Mor creció como un niño extraño y callado. Podía quedarse dormido en cualquier sitio y despertar recordando sueños de otros mundos. A veces resolvía problemas de los aldeanos con información que no podía conocer, o predecía tormentas por los sueños de las aves.</p>
+                    <h4>El despertar del paladín</h4>
+                    <p>A los 14 años, una plaga de pesadillas asoló la comarca. La gente dejaba de dormir, volviéndose violenta. Los adultos del templo no podían hacer nada. Una noche, Mor se plantó en el centro de la villa y, con determinación férrea, pronunció en silencio un juramento al concepto del Descanso Eterno. Una luz tenue, como de luna llena, emanó de él. Caminó entre los durmientes agitados y, al tocar sus frentes, pequeños espantos etéreos salieron de sus cuerpos. Con su espada de entrenamiento, que de repente brillaba con luz de estrellas, los disipó. Así invocó el poder de un paladín, uniendo su alma al dominio de su padre divino: la protección del reino de los Sueños.</p>
+                    <details class="spoilers">
+                        <summary>⚔️ JURAMENTO DE LA VIGILIA SILENTE</summary>
+                        <p>«Velaré por los que duermen, pues en su indefensión reside la esperanza del mañana. Seré el muro entre este mundo y las pesadillas que acechan. Guardaré el silencio de la noche y protegeré la luz que reside en los sueños de los mortales. Que mi espada sea el último pensamiento de las tinieblas y el primero de un nuevo y pacífico amanecer.»</p>
+                    </details>
+                    <p><strong>Trasfondo: Héroe de los sueños</strong> — De clase social humilde, pero destinado a proteger a la gente común. Su naturaleza divina se manifestó claramente durante la plaga. Desde entonces lleva a cabo su misión con la ayuda de los aldeanos, que lo ocultan cuando es necesario (rasgo: Hospitalidad rural).</p>
+                </section>
+
+                <section id="trivia">
+                    <h3 class="green">trivia</h3>
+                    <ul>
+                        <li>Puede quedarse dormido en cualquier postura y lugar.</li>
+                        <li>A menudo habla en sueños, y lo que dice suele ser profético.</li>
+                        <li>Su espada de entrenamiento brilla con luz de estrellas cuando combate pesadillas.</li>
+                        <li>Le encanta la leche con miel antes de dormir.</li>
+                        <li>Los animales parecen sentir confianza en él, especialmente los gatos.</li>
+                    </ul>
+                </section>
+
+                <!-- ============================================================
+                     GALERÍA CON PESTAÑAS – NUEVO SISTEMA JS (100% FUNCIONAL)
+                     ============================================================ -->
+                <section id="gallery">
+                    <h3 class="orange">gallery</h3>
+
+                    <div class="gallery-grid">
+                        <!-- Botones de pestaña -->
+                        <div class="gallery-tabs">
+                            <button class="tab-btn active" data-tab="1">page 1</button>
+                            <button class="tab-btn" data-tab="2">page 2</button>
+                            <button class="tab-btn" data-tab="3">page 3</button>
+                        </div>
+
+                        <!-- Paneles de contenido -->
+                        <div class="tab-panels">
+                            <!-- Panel 1 -->
+                            <div class="tab-panel active" data-tab="1">
+                                <a href="images/s2_bust.png">
+                                    <figure>
+                                        <img src="images/s2_bust.png" loading="lazy" alt="standing pose" />
+                                        <figcaption>standing pose (syrup 2)</figcaption>
+                                    </figure>
+                                </a>
+                                <a href="images/concept.png">
+                                    <figure>
+                                        <img src="images/concept.png" loading="lazy" alt="concept art" />
+                                        <figcaption>concept art (witch version)</figcaption>
+                                    </figure>
+                                </a>
+                            </div>
+
+                            <!-- Panel 2 -->
+                            <div class="tab-panel" data-tab="2">
+                                <details>
+                                    <summary>[spoilers]</summary>
+                                    <a href="images/concept2.png">
+                                        <figure>
+                                            <img src="images/concept2.png" loading="lazy" alt="concepto oscuro" />
+                                            <figcaption>forma parcialmente animalizada</figcaption>
+                                        </figure>
+                                    </a>
+                                </details>
+                            </div>
+
+                            <!-- Panel 3 -->
+                            <div class="tab-panel" data-tab="3">
+                                <p class="empty-message">this page is empty!</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="pink">links</h3>
+                    <ul>
+                        <li><a href="#">Cómic / galería de Mor (próximamente)</a></li>
+                        <li>Plantilla original de <a href="https://nomnomnami.com/" target="_blank">NomnomNami</a></li>
+                    </ul>
+                </section>
+
+                <section id="comments">
+                    <h2>comentarios</h2>
+                    <article class="comment">
+                        <div class="user"><img src="images/no-icon.png" class="icon" />Hadrianus <small>(+12)</small></div>
+                        <p>Es un buen chico, aunque a veces lo encuentro dormido en las escaleras. Tiene un corazón puro.</p>
+                    </article>
+                    <article class="comment">
+                        <div class="user"><img src="images/no-icon.png" class="icon" />Lía (panadera)</div>
+                        <p>La otra noche tuve una pesadilla horrible, pero Mor apareció en mi sueño y me ayudó a despertar. ¡No sé cómo lo hizo!</p>
+                        <details class="reply">
+                            <summary>ver respuestas (2)</summary>
+                            <article class="comment">
+                                <div class="user"><img src="images/no-icon.png" class="icon" />Aldeano</div>
+                                <p>A mí también me pasó. Desde entonces duermo tranquilo.</p>
+                            </article>
+                            <article class="comment">
+                                <div class="user"><img src="images/no-icon.png" class="icon" />Mor</div>
+                                <p>... *sonrisa somnolienta*</p>
+                            </article>
+                        </details>
+                    </article>
+                    <article class="comment">
+                        <em>[System: este es un perro de las praderas durmiendo]</em>
+                    </article>
+                </section>
+
+                <!-- ===== END ORIGINAL CONTENT ===== -->
+
+                <!-- BACK TO ALL CHARACTERS -->
+                <a href="/ocs/index.html" class="back-to-ocs">
+                    <i class="fas fa-arrow-left"></i> Go to all characters
+                </a>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- GLOBAL FOOTER (loaded by loader.js) -->
+    <footer></footer>
+
+    <!-- SCRIPTS -->
+    <script src="/js/loader.js" defer></script>
+    <script>
+        // Manejo de pestañas de la galería
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const panels = document.querySelectorAll('.tab-panel');
+
+            tabs.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.dataset.tab;
+                    // Desactivar todos los botones
+                    tabs.forEach(b => b.classList.remove('active'));
+                    // Activar el botón clicado
+                    this.classList.add('active');
+                    // Ocultar todos los paneles
+                    panels.forEach(p => p.classList.remove('active'));
+                    // Mostrar el panel correspondiente
+                    document.querySelector(`.tab-panel[data-tab="${tabId}"]`).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
 </html>

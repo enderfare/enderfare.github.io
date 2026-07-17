@@ -512,8 +512,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ---- Fetch data ----
-    fetch('posts.json')
-        .then(res => res.json())
+    window.blogData.getBlogData()
         .then(data => {
             lists = data.lists || [];
             posts = data.posts || [];

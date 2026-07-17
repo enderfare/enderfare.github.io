@@ -378,6 +378,47 @@ main {
     border-radius: var(--radius-sm);
 }
 
+/* ========== SHARED CONTENT CARDS ========== */
+.post-card {
+    background: var(--bg-color);
+    border: 1px solid var(--favorite-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.8rem;
+    padding: 1.2rem 1.5rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.post-card:last-child { margin-bottom: 0; }
+.post-card:hover { border-color: var(--accent-color); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4); transform: translateY(-2px); }
+.post-header, .post-title-wrapper, .excerpt-footer, .excerpt-meta { display: flex; flex-wrap: wrap; }
+.post-header { align-items: flex-start; gap: 0.6rem; justify-content: space-between; margin-bottom: 0.3rem; }
+.post-title-wrapper { align-items: center; flex: 1; gap: 0.4rem; min-width: 0; }
+.post-title { font-size: 1.1rem; font-weight: bold; margin: 0; }
+.post-title a { color: inherit; text-decoration: none; }
+.post-title a:hover, .parent-badge.title-parent a:hover, .post-readmore:hover { color: var(--accent-color); text-decoration: underline; }
+.pinned-badge, .parent-badge.title-parent, .post-date-badge, .post-tag, .list-badge { border-radius: 1rem; font-size: 0.6rem; }
+.pinned-badge, .list-badge { align-items: center; color: var(--accent-color); display: inline-flex; gap: 0.2rem; }
+.pinned-badge { background: rgba(252, 129, 74, 0.2); border: 1px solid var(--accent-color); padding: 0.05rem 0.6rem; white-space: nowrap; }
+.parent-badge.title-parent { background: rgba(255, 255, 255, 0.06); border: 1px solid var(--text-color2); color: var(--text-color2); display: inline-flex; gap: 0.2rem; padding: 0.05rem 0.6rem; white-space: nowrap; }
+.parent-badge.title-parent a { color: var(--link-color); text-decoration: none; }
+.post-date-badge { align-items: center; background: rgba(252, 129, 74, 0.15); border: 1px solid var(--favorite-color); color: var(--accent-color); display: inline-flex; flex-shrink: 0; gap: 0.2rem; padding: 0.1rem 0.6rem; white-space: nowrap; }
+.post-date-badge .month, .post-date-badge .day { font-weight: bold; }
+.post-date-badge .month { text-transform: uppercase; }
+.post-date-badge .year { opacity: 0.6; }
+.post-excerpt { color: var(--text-color2); display: flex; flex: 1; flex-direction: column; font-size: 0.9rem; line-height: 1.5; margin-top: 0.2rem; }
+.post-excerpt p { margin: 0.3rem 0; }
+.excerpt-footer { align-items: center; border-top: 1px dashed rgba(255, 255, 255, 0.08); gap: 0.3rem; justify-content: space-between; margin-top: auto; padding-top: 0.4rem; }
+.excerpt-meta { align-items: center; gap: 0.2rem; }
+.post-tag { background: var(--bg-color); border: 1px solid var(--text-color2); color: var(--text-color2); display: inline-block; padding: 0.05rem 0.5rem; }
+.list-badge { background: rgba(252, 129, 74, 0.12); border: 1px solid var(--accent-color); padding: 0.05rem 0.5rem; }
+.list-badge i, .post-readtime i { font-size: 0.5rem; }
+.post-readmore { align-items: center; color: var(--accent-color); display: inline-flex; flex-shrink: 0; font-size: 0.85rem; font-weight: bold; gap: 0.2rem; text-decoration: none; }
+.post-readtime { color: var(--text-color2); font-size: 0.6rem; margin-left: 0.3rem; opacity: 0.6; }
+.pinned-grid { display: flex; flex-direction: column; gap: 0.5rem; }
+
 /* ========== RESPONSIVE OVERRIDES FOR MAIN ========== */
 @media only screen and (max-width: 1024px) {
     main {
@@ -387,18 +428,23 @@ main {
 
 @media only screen and (max-width: 768px) {
     main {
-        max-height: 50vh;
-        min-height: 300px;
+        max-height: none;
+        min-height: 0;
+        overflow: visible;
         order: 1;
     }
+
+    footer { position: static; margin-top: var(--spacing-md); }
 }
 
 @media only screen and (max-width: 480px) {
     main {
-        max-height: 40vh;
-        min-height: 250px;
+        max-height: none;
+        min-height: 0;
         order: 1;
     }
+
+    .prose { padding: var(--spacing-sm); }
 }
 
 /* ========== RESPONSIVE (general) ========== */

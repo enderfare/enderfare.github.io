@@ -1,0 +1,44 @@
+{
+    "title": "My Fantasy Novel",
+    "description": "A dark fantasy about lost memories.",
+    "language": "English",
+    "tags": [
+        "fantasy",
+        "dark",
+        "adventure"
+    ],
+    "cover": "/media/images/novel-cover.jpg",
+    "chapters": [
+        {
+            "slug": "chapter-1",
+            "title": "The Awakening",
+            "date": "2026-06-28",
+            "format": "markdown"
+        },
+        {
+            "slug": "chapter-2",
+            "title": "The Journey",
+            "date": "2026-07-01",
+            "format": "markdown"
+        },
+        {
+            "slug": "chapter-3",
+            "title": "The Return",
+            "date": "2026-07-05",
+            "format": "markdown"
+        },
+        {
+            "slug": "chapter-2-1",
+            "title": "Epilogue 1",
+            "date": "2026-07-10",
+            "format": "markdown",
+            "parent": "chapter-2"
+        },{
+            "slug": "chapter-2-2",
+            "title": "Epilogue 2",
+            "date": "2026-07-10",
+            "format": "markdown",
+            "parent": "chapter-2"
+        }
+    ]
+}

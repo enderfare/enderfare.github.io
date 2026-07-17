@@ -590,195 +590,8 @@ main {
     gap: 0.5rem;
 }
 
-.post-card {
-    background: var(--bg-color);
-    border: 1px solid var(--favorite-color);
-    border-radius: var(--radius-md);
-    padding: 1.2rem 1.5rem;
-    transition: all 0.2s ease;
-    box-shadow: var(--shadow-sm);
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0.8rem;
-}
 
-.post-card:last-child {
-    margin-bottom: 0;
-}
-
-.post-card:hover {
-    border-color: var(--accent-color);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-}
-
-/* ===== POST HEADER ===== */
-.post-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 0.6rem;
-    margin-bottom: 0.3rem;
-    flex-wrap: wrap;
-}
-
-.post-title-wrapper {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    flex: 1;
-    min-width: 0;
-}
-
-.post-title {
-    font-weight: bold;
-    font-size: 1.1rem;
-    color: var(--text-color);
-    margin: 0;
-}
-
-.post-title a {
-    color: inherit;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.post-title a:hover {
-    color: var(--accent-color);
-}
-
-.parent-badge.title-parent {
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid var(--text-color2);
-    border-radius: 1rem;
-    padding: 0.05rem 0.6rem;
-    font-size: 0.55rem;
-    color: var(--text-color2);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.2rem;
-    white-space: nowrap;
-}
-
-.parent-badge.title-parent a {
-    color: var(--link-color);
-    text-decoration: none;
-}
-
-.parent-badge.title-parent a:hover {
-    text-decoration: underline;
-}
-
-.post-date-badge {
-    background: rgba(252, 129, 74, 0.15);
-    color: var(--accent-color);
-    font-size: 0.6rem;
-    padding: 0.1rem 0.6rem;
-    border-radius: 1rem;
-    border: 1px solid var(--favorite-color);
-    white-space: nowrap;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.2rem;
-    flex-shrink: 0;
-}
-
-.post-date-badge .month {
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-.post-date-badge .day {
-    font-weight: bold;
-}
-
-/* ===== EXCERPT ===== */
-.post-excerpt {
-    color: var(--text-color2);
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-top: 0.2rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.post-excerpt p {
-    margin: 0.3rem 0;
-}
-
-.excerpt-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.3rem;
-    margin-top: auto;
-    padding-top: 0.4rem;
-    border-top: 1px dashed rgba(255, 255, 255, 0.08);
-}
-
-.excerpt-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.2rem;
-    align-items: center;
-}
-
-.post-tag {
-    background: var(--bg-color);
-    border: 1px solid var(--text-color2);
-    border-radius: 1rem;
-    padding: 0.05rem 0.5rem;
-    font-size: 0.6rem;
-    color: var(--text-color2);
-    display: inline-block;
-}
-
-.list-badge {
-    background: rgba(252, 129, 74, 0.12);
-    color: var(--accent-color);
-    border: 1px solid var(--accent-color);
-    border-radius: 1rem;
-    padding: 0.05rem 0.5rem;
-    font-size: 0.6rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.2rem;
-}
-
-.list-badge i {
-    font-size: 0.5rem;
-}
-
-.post-readmore {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.2rem;
-    color: var(--accent-color);
-    font-weight: bold;
-    text-decoration: none;
-    transition: gap 0.2s;
-    flex-shrink: 0;
-    font-size: 0.85rem;
-}
-
-.post-readmore:hover {
-    gap: 0.5rem;
-    text-decoration: underline;
-}
-
-.post-readtime {
-    font-size: 0.6rem;
-    color: var(--text-color2);
-    opacity: 0.6;
-    margin-left: 0.3rem;
-}
-
-.post-readtime i {
-    margin-right: 0.1rem;
-}
+/* Shared post-card styles live in /common.css. */
 
 /* ========== ANIMATIONS ========== */
 @media (prefers-reduced-motion: no-preference) {
@@ -929,8 +742,7 @@ main {
 
     .main-wrapper {
         order: 1;
-        max-height: 50vh;
-        /* reduce height on mobile for better viewing */
+        max-height: none;
     }
 
     #sidebar,
@@ -955,8 +767,8 @@ main {
 
     main {
         order: 1;
-        max-height: 50vh;
-        min-height: 280px;
+        max-height: none;
+        min-height: 0;
     }
 
     .post-header {

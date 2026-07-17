@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Mor",
+        "description": "A mysterious D&D character from the northern wastes.",
+        "link": "/ocs/dnd/nor/",
+        "image": "/media/images/icon.jpg",
+        "tags": [
+            "dnd",
+            "warrior",
+            "frost"
+        ],
+        "language": "Spanish"
+    }
+]

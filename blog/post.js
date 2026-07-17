@@ -26,11 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return minutes > 0 ? minutes : 1;
     }
 
-    function formatDate(dateStr) {
-        const d = new Date(dateStr);
-        return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-    }
-
     // ---- Build full list tree ----
     function buildFullListTree(lists, parentSlug = null) {
         const children = lists.filter(l => l.parent === parentSlug);
@@ -171,11 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ---- Main fetch ----
-    fetch('posts.json')
-        .then(res => {
-            if (!res.ok) throw new Error('Failed to load posts.json');
-            return res.json();
-        })
+    window.blogData.getBlogData()
         .then(data => {
             allLists = data.lists || [];
             allPosts = data.posts || [];
@@ -191,17 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const prevPost = sorted[currentIndex + 1] || null;
             const nextPost = sorted[currentIndex - 1] || null;
 
-            const dateParts = post.date.split('-');
-            const year = dateParts[0];
-            const month = dateParts[1];
-            const day = dateParts[2];
-
-            let ext = '';
-            if (post.format === 'markdown') ext = '.md';
-            else if (post.format === 'html') ext = '.html';
-            else ext = '.txt';
-
-            const contentPath = `content/${year}/${month}/${day}/${post.slug}${ext}`;
+            const contentPath = window.blogData.getPostContentPath(post);
 
             return fetch(contentPath)
                 .then(res => {
@@ -255,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     container.innerHTML = `
                         <h1>${post.title}</h1>
                         <div class="post-meta">
-                            <span class="post-date"><i class="far fa-calendar-alt"></i> ${formatDate(post.date)}</span>
+                            <span class="post-date"><i class="far fa-calendar-alt"></i> ${window.blogData.formatDate(post.date)}</span>
                             <span class="post-readtime"><i class="far fa-clock"></i> ${readTime} min read</span>
                             <div class="post-tags">
                                 ${post.tags.map(tag => `<span class="post-tag">#${tag}</span>`).join('')}

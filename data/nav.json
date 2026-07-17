@@ -10,5 +10,13 @@
     {
         "name": "Blog",
         "url": "/blog/index.html"
+    },
+    {
+        "name": "OCs",
+        "url": "/ocs/index.html"
+    },
+    {
+        "name": "Novels",
+        "url": "/novels/index.html"
     }
 ]

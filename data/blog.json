@@ -1,0 +1,47 @@
+{
+  "lists": [
+    { "slug": "meta", "name": "Meta", "parent": null },
+    { "slug": "dev-logs", "name": "Dev Logs", "parent": null },
+    { "slug": "novel-series", "name": "Novel Series", "parent": null },
+    { "slug": "chapter-3", "name": "Chapter 3", "parent": "novel-series" },
+    { "slug": "personal", "name": "Personal", "parent": null }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "slug": "welcome",
+      "title": "Welcome to my Blog!",
+      "date": "2026-06-30",
+      "tags": ["intro", "dev"],
+      "format": "markdown",
+      "content": "/blog/content/2026/06/30/welcome.md",
+      "pinned": true,
+      "lists": ["meta", "dev-logs"],
+      "excerpt": "My very first post. I'll be sharing dev, writing, and RPG updates."
+    },
+    {
+      "id": 2,
+      "slug": "chapter-3",
+      "title": "Writing Update: Chapter 3",
+      "date": "2026-06-28",
+      "tags": ["writing"],
+      "format": "html",
+      "content": "/blog/content/2026/06/28/chapter-3.html",
+      "pinned": false,
+      "lists": ["chapter-3"],
+      "excerpt": "I finished the third chapter of my novel."
+    },
+    {
+      "id": 3,
+      "slug": "old-thoughts",
+      "title": "Old thoughts from May",
+      "date": "2026-05-15",
+      "tags": ["personal"],
+      "format": "text",
+      "content": "/blog/content/2026/05/15/old-thoughts.txt",
+      "pinned": false,
+      "lists": ["personal"],
+      "excerpt": "Just some old ramblings."
+    }
+  ]
+}
