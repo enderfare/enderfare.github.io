@@ -1,0 +1,64 @@
+name: Add New Project
+
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: "Project Title"
+        required: true
+        type: string
+      description:
+        description: "Project Description"
+        required: true
+        type: string
+      image_url:
+        description: "Image URL (e.g., https://example.com/screenshot.png)"
+        required: true
+        type: string
+      link:
+        description: "Project Link (e.g., https://myproject.com)"
+        required: true
+        type: string
+      tags:
+        description: "Comma-separated tags (e.g., game,design,web)"
+        required: false
+        type: string
+        default: ""
+
+permissions:
+  contents: write # Needed to commit and push changes
+
+jobs:
+  add-project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Run the add project script
+        run: |
+          python add_project.py \
+            --title "${{ github.event.inputs.title }}" \
+            --description "${{ github.event.inputs.description }}" \
+            --image "${{ github.event.inputs.image_url }}" \
+            --link "${{ github.event.inputs.link }}" \
+            --tags "${{ github.event.inputs.tags }}" \
+            --repo-root .
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/projects.json projects/images/
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Add project: ${{ github.event.inputs.title }}"
+            git push origin feature/novels-ocs
+          fi
