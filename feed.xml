@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ender Fare's Blog</title>
+    <link>https://enderfare.github.io</link>
+    <description>My personal blog</description>
+    <atom:link href="https://enderfare.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Sat, 18 Jul 2026 00:06:43 GMT</lastBuildDate>
+    
+    <item>
+      <title>Welcome to my Blog!</title>
+      <link>https://enderfare.github.io/blog/post.html?post=welcome</link>
+      <guid>https://enderfare.github.io/blog/post.html?post=welcome</guid>
+      <pubDate>Tue, 30 Jun 2026 00:00:00 GMT</pubDate>
+      <description>My very first post. I&apos;ll be sharing dev, writing, and RPG updates.</description>
+    </item>
+  
+    <item>
+      <title>Writing Update: Chapter 3</title>
+      <link>https://enderfare.github.io/blog/post.html?post=chapter-3</link>
+      <guid>https://enderfare.github.io/blog/post.html?post=chapter-3</guid>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+      <description>I finished the third chapter of my novel.</description>
+    </item>
+  
+    <item>
+      <title>Old thoughts from May</title>
+      <link>https://enderfare.github.io/blog/post.html?post=old-thoughts</link>
+      <guid>https://enderfare.github.io/blog/post.html?post=old-thoughts</guid>
+      <pubDate>Fri, 15 May 2026 00:00:00 GMT</pubDate>
+      <description>Just some old ramblings.</description>
+    </item>
+  
+  </channel>
+</rss>
