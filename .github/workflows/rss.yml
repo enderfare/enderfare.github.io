@@ -1,0 +1,21 @@
+name: Generate RSS Feed
+on:
+  push:
+    paths:
+      - "blog/posts.json"
+      - "scripts/generate-rss.js"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: node scripts/generate-rss.js
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Generate RSS feed"
+          file_pattern: feed.xml

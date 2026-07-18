@@ -1,0 +1,51 @@
+name: Create Novel
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: "Novel title"
+        required: true
+      description:
+        description: "Novel description"
+        required: false
+      language:
+        description: "Language (default: English)"
+        required: false
+        default: "English"
+      tags:
+        description: "Comma-separated tags (e.g., fantasy,adventure)"
+        required: false
+      cover:
+        description: "Path to cover image (e.g., /media/images/cover.jpg)"
+        required: false
+
+jobs:
+  create-novel:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: feature/novels-ocs
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Create novel
+        run: |
+          python scripts/create_novel.py \
+            --title "${{ inputs.title }}" \
+            --description "${{ inputs.description }}" \
+            --language "${{ inputs.language }}" \
+            --tags "${{ inputs.tags }}" \
+            --cover "${{ inputs.cover }}"
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add .
+          git commit -m "Add new novel: ${{ inputs.title }}"
+          git push
