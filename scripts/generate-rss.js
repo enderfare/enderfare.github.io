@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const postsPath = path.join(__dirname, '../blog/posts.json');
+const postsPath = path.join(__dirname, '../data/blog.json');
 const posts = JSON.parse(fs.readFileSync(postsPath, 'utf8'));
 
 const siteUrl = 'https://enderfare.github.io';
